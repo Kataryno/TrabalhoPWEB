@@ -42,9 +42,21 @@
         <h2 onclick="hide()" >Categorias</h2>
         <div id="pratos"  class ="col-md-4" >
              <h3>Pratos</h3>
+            <h4>Pratos de Carne</h4>
+            <h4>Pratos de Peixe</h4>
+            <h4>Pratos de Marisco</h4>
+
         </div>
          <div id="bebidas"  class ="col-md-4">
             <h3>Bebidas</h3>
+             <h4>Vinhos maduros</h4>
+             <h5>Vinhos maduros branco</h5>
+             <h5>Vinhos maduros tinto</h5>
+            <h4>Vinhos verdes</h4>
+             <h5>Vinhos verdes branco</h5>
+             <h5>Vinhos verdes tinto</h5>
+           
+
         </div>
         <div id="aperitivos"  class ="col-md-4">
              <h3>Aperitivos</h3>
