@@ -1,4 +1,4 @@
-﻿<%@ Title="Fornecedor" Page Language="C#" AutoEventWireup="true" CodeBehind="FornecedoresForm.aspx.cs" Inherits="LuxCatering.FornecedoresForm" %>
+﻿<%@Page Title="Fornecedor"  Language="C#" AutoEventWireup="true" CodeBehind="FornecedoresForm.aspx.cs" Inherits="LuxCatering.FornecedoresForm" %>
 
 <!DOCTYPE html>
 
