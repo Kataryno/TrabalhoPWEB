@@ -2,7 +2,7 @@
 body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color:aqua;
+    background-image:url("wallpaper.jpg")
 }
 
 /* Wrapping element */
@@ -32,8 +32,17 @@ input[type="select"] {
 @media screen and (min-width: 768px) {
     .jumbotron {
         margin-top: 20px;
+        font-family:Impact;
     }
     .body-content {
         padding: 0;
     }
+}
+
+#footer{
+    display: table;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
 }

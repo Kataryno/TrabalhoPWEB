@@ -9,15 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
 
-    <asp:PlaceHolder runat="server">
+    <%--<asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
-    </asp:PlaceHolder>
+    </asp:PlaceHolder>--%>
+    <asp:ContentPlaceHolder ID="Stylesheets" runat="server">
+        <link rel="stylesheet" href="~/Content/Site.css" type="text/css" />
+    </asp:ContentPlaceHolder>
+
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
    
 
 </head>
-<body style="background-color:aqua">
+
 
     <form runat="server">
         <asp:ScriptManager runat="server">
@@ -53,7 +57,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Início</a></li>
+                        <%--<li><a runat="server" href="~/">Início</a></li>--%>
                         <li><a runat="server" href="~/About">Acerca</a></li>
                         <li><a runat="server" href="~/Contact">Contactos</a></li>
                     </ul>
@@ -80,10 +84,15 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
+<%--            <footer>
                 <p>Lux Catering &copy; <%: DateTime.Now.Year %> </p>
-            </footer>
+            </footer>--%>
+
+            
         </div>
+        <div id="footer">
+                <p>Lux Catering &copy; <%: DateTime.Now.Year %> </p>
+            </div>
     </form>
-</body>
+</b>
 </html>
