@@ -31,12 +31,9 @@
     <form id="form1" runat="server">
     <div>
     <div class="jumbotron">
-        <h1>&nbsp;</h1>
+        
         <h1 onclick="show()">LuxCatering - Pedido Novo</h1>
-        <p class="lead">&nbsp;</p>
-        <div class="col-md-4">
       
-        </div>
     </div>
         </div>
         <h2 onclick="hide()" >Categorias</h2>
@@ -52,7 +49,7 @@
              <h4>Vinhos maduros</h4>
              <h5>Vinhos maduros branco</h5>
              <h5>Vinhos maduros tinto</h5>
-            <h4>Vinhos verdes</h4>
+             <h4>Vinhos verdes</h4>
              <h5>Vinhos verdes branco</h5>
              <h5>Vinhos verdes tinto</h5>
            
@@ -60,9 +57,15 @@
         </div>
         <div id="aperitivos"  class ="col-md-4">
              <h3>Aperitivos</h3>
+            <h4>Salgadinhos</h4>
+            <h4>Fritos</h4>
+            <h4>Frescos</h4>
         </div>
         <div id="sobremesa"  class ="col-md-4">
              <h3>Sobremesa</h3>
+              <h4>Frutas</h4>
+              <h4>Bolos</h4>
+              <h4>Frios</h4>
         </div>
     </form>
 </body>
