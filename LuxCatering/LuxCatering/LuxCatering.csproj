@@ -171,6 +171,9 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="App_Data\LuxCatering.mdf" />
+    <Content Include="App_Data\LuxCatering_log.ldf">
+      <DependentUpon>LuxCatering.mdf</DependentUpon>
+    </Content>
     <Content Include="ClientesForm.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
