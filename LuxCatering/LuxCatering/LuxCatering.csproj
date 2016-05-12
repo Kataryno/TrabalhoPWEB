@@ -170,10 +170,6 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Base_Dados\LuxCatering.mdf" />
-    <Content Include="Base_Dados\LuxCatering_log.ldf">
-      <DependentUpon>LuxCatering.mdf</DependentUpon>
-    </Content>
     <Content Include="ClientesForm.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -409,6 +405,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Base_Dados\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
