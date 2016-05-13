@@ -2,12 +2,12 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pt">
 <head runat="server">
     <meta charset="utf-8" />
    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - LuxCatering</title>
 
     <%--<asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -24,6 +24,7 @@
 
 
     <form runat="server">
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -43,6 +44,7 @@
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
             </Scripts>
+           
         </asp:ScriptManager>
 
         <div class="navbar navbar-inverse navbar-fixed-top">
