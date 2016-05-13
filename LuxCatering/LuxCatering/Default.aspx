@@ -8,7 +8,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4" style="background:white;" >
+        <div class="col-md-4" >
             
                 <h2>Vai dar uma festa?</h2>
                 <p style="text-align: justify">Preocupe-se apenas com a diversão! Através do Lux Catering poderá encontrar o melhor parceiro para o seu evento. Mais de 20 fornecedores registados e certificados na área da restauração.Registe-se ou inicie a sessão para começar a pedir orçamentos para aquele momento especial!  </p>

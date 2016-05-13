@@ -12,6 +12,7 @@
     <%--<asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>--%>
+
     <asp:ContentPlaceHolder ID="Stylesheets" runat="server">
         <link rel="stylesheet" href="~/Content/Site.css" type="text/css" />
     </asp:ContentPlaceHolder>
