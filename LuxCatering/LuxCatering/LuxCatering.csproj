@@ -170,15 +170,6 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="App_Data\LuxCat.mdf" />
-    <Content Include="App_Data\LuxCat_log.ldf">
-      <DependentUpon>LuxCat.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\LuxCatering.mdf" />
-    <Content Include="App_Data\LuxCatering.sql" />
-    <Content Include="App_Data\LuxCatering_log.ldf">
-      <DependentUpon>LuxCatering.mdf</DependentUpon>
-    </Content>
     <Content Include="ClientesForm.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -413,6 +404,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Base_Dados\" />
   </ItemGroup>
   <PropertyGroup>
