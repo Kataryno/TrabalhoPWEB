@@ -14,7 +14,7 @@
                 <p style="text-align: justify">Preocupe-se apenas com a diversão! Através do Lux Catering poderá encontrar o melhor parceiro para o seu evento. Mais de 20 fornecedores registados e certificados na área da restauração.Registe-se ou inicie a sessão para começar a pedir orçamentos para aquele momento especial!  </p>
             
         </div>
-        <div class="col-md-4" style="background:white;">
+        <div class="col-md-4">
             <h2>Expandir o seu negócio?</h2>
             <p style="text-align: justify">
                 Será um prazer contar consigo. Pode registar-se gratuitamente. A nossa plataforma irá ajudá-lo a encontrar clientes, aumentar as suas receitas e a expandir o seu negócio. 
