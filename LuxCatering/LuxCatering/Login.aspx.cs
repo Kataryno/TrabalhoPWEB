@@ -14,7 +14,13 @@ namespace LuxCatering
         {
             if (IsPostBack)
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["UtilizadorConnectionString"].ConnectionString);
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString =
+                    "Data Source=espinheira.no-ip.org;" +
+                    "Initial Catalog=LuxCatering-DB;" +
+                    "User id=sa;" +
+                    "Password = pweb;";
+                
                 conn.Open();
                 string checkuser = "select count(*) from UTILIZADOR where NOME ='" + TBUserName.Text + "'";
                 SqlCommand com = new SqlCommand(checkuser,conn);
@@ -35,7 +41,13 @@ namespace LuxCatering
         {
             try
             {
-                SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["UtilizadorConnectionString"].ConnectionString);
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString =
+                    "Data Source=espinheira.no-ip.org;" +
+                    "Initial Catalog=LuxCatering-DB;" +
+                    "User id=sa;" +
+                    "Password = pweb;";
+                //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Data Source=espinheira.no-ip.org;Initial Catalog=LuxCatering-DB;Persist Security Info=True;User ID=sa;Password=pweb"].ConnectionString);
                 conn.Open();
                 string insertQuery = "insert into UTILIZADOR (NOME,EMAIL,PASSWORD,LOCALIDADE) values (@Utiliz,@Email,@Pass,@Local) ";
                 SqlCommand com = new SqlCommand(insertQuery, conn);
