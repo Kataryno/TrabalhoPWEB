@@ -16,7 +16,7 @@
  * Licensed under the Apache License v2.0
  * http://www.apache.org/licenses/LICENSE-2.0
  *
- * Designed and built with all the love in the world by @mdo and @fat.
+ * Designed and built with all the love in the world by @o and @fat.
  */
 
 /*! normalize.css v2.1.0 | MIT License | git.io/normalize */
@@ -860,6 +860,7 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+
 }
 
 .col-xs-1,
