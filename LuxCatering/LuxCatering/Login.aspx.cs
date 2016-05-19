@@ -57,7 +57,7 @@ namespace LuxCatering
                 com.Parameters.AddWithValue("@Local", DropDownList1.Text);
 
                 com.ExecuteNonQuery();
-                Response.Redirect("Manager.aspx");
+                Response.Redirect("Admin/Manager.aspx");
                 Response.Write("foi submetido registo");
                 conn.Close();
             }

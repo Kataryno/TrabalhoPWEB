@@ -1,72 +1,73 @@
-﻿<%@Page Title="Cliente"  Language="C#"   AutoEventWireup="true" CodeBehind="ClientesForm.aspx.cs" Inherits="LuxCatering.ClientesForm" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ClientesForm.aspx.cs" Inherits="LuxCatering.ClientesForm" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <link rel="stylesheet" type="text/css" href ="Content/Site.css" />
-    <title></title>
-<script >
-
-    function show() {
-   
-            document.getElementById('pratos').style.display = 'block';
-            document.getElementById('bebidas').style.display = 'block';
-            document.getElementById('aperitivos').style.display = 'block';
-            document.getElementById('sobremesa').style.display = 'block';
-        
-    }
-    function hide(){
-        
-            document.getElementById('pratos').style.display = 'none';
-            document.getElementById('bebidas').style.display = 'none';
-            document.getElementById('aperitivos').style.display = 'none';
-            document.getElementById('sobremesa').style.display = 'none';
-        
-    }
-
-</script>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    <div class="jumbotron">
-        
-        <h1 onclick="show()">LuxCatering - Pedido Novo</h1>
+  
+    <div id="form1" runat="server">
+    
       
+    
+        <table class="nav-justified">
+            <tr>
+                <td class="auto-style1">
+                    <asp:Label ID="Label1" runat="server" Text="Solicitar Orçamento"></asp:Label>
+                <br /><br />
+                    <asp:Label ID="Label2" runat="server" Text="Respostas"></asp:Label>
+                  <br /><br />
+                       <asp:Label ID="Label3" runat="server" Text="Alterar dados"></asp:Label>
+                  
+                </td>
+                <td>
+                    <div id="orca">
+
+
+
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PRODUTO]"></asp:SqlDataSource>
+                        <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1">
+                            <Columns>
+                                <asp:CommandField ShowSelectButton="True" />
+                                <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" ReadOnly="True" SortExpression="ID_PRODUTO" />
+                                <asp:BoundField DataField="ID_CATEGORIA" HeaderText="ID_CATEGORIA" SortExpression="ID_CATEGORIA" />
+                                <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
+                                <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
+                            </Columns>
+                        </asp:GridView>
+
+                        <asp:Button ID="Button1" runat="server" Text="Solicitar Orçamento" />
+
+                        <br />
+
+                    </div>
+                    <div id="respo">
+
+
+                    </div>
+                    <div id="dados">
+
+
+                    </div>
+
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td class="auto-style1">&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    
+      
+    
     </div>
-        </div>
-        <h2 onclick="hide()" >Categorias</h2>
-        <div id="pratos"  class ="col-md-4" >
-             <h3>Pratos</h3>
-            <h4>Pratos de Carne</h4>
-            <h4>Pratos de Peixe</h4>
-            <h4>Pratos de Marisco</h4>
+    
+    </asp:Content>
 
-        </div>
-         <div id="bebidas"  class ="col-md-4">
-            <h3>Bebidas</h3>
-             <h4>Vinhos maduros</h4>
-             <h5>Vinhos maduros branco</h5>
-             <h5>Vinhos maduros tinto</h5>
-             <h4>Vinhos verdes</h4>
-             <h5>Vinhos verdes branco</h5>
-             <h5>Vinhos verdes tinto</h5>
-           
+<asp:Content ID="Content1" runat="server" contentplaceholderid="Stylesheets">
+    <link rel="stylesheet" href="~/Content/Site.css" type="text/css" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 214px;
+        }
+    </style>
+</asp:Content>
 
-        </div>
-        <div id="aperitivos"  class ="col-md-4">
-             <h3>Aperitivos</h3>
-            <h4>Salgadinhos</h4>
-            <h4>Fritos</h4>
-            <h4>Frescos</h4>
-        </div>
-        <div id="sobremesa"  class ="col-md-4">
-             <h3>Sobremesa</h3>
-              <h4>Frutas</h4>
-              <h4>Bolos</h4>
-              <h4>Frios</h4>
-        </div>
-    </form>
-</body>
-</html>
+

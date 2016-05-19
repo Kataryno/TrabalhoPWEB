@@ -190,7 +190,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="FornecedoresForm.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Manager.aspx" />
+    <Content Include="Admin\Manager.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -394,11 +394,11 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Manager.aspx.cs">
+    <Compile Include="Admin\Manager.aspx.cs">
       <DependentUpon>Manager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Manager.aspx.designer.cs">
+    <Compile Include="Admin\Manager.aspx.designer.cs">
       <DependentUpon>Manager.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -435,6 +435,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Base_Dados\" />
+    <Folder Include="Clientes\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
