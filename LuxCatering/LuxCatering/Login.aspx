@@ -1,34 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="LuxCatering.Login" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="LuxCatering.Login" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            width: 100%;
-        }
-        .auto-style2 {
-            height: 23px;
-        }
-        .auto-style3 {
-            text-align: right;
-            width: 145px;
-        }
-        .auto-style4 {
-            height: 23px;
-            text-align: right;
-            width: 145px;
-        }
-        .auto-style5 {
-            width: 145px;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+  
+    <div id="form1" runat="server">
     
         <table class="auto-style1">
             <tr>
@@ -100,6 +75,6 @@
         </table>
     
     </div>
-    </form>
-</body>
-</html>
+    
+    </asp:Content>
+

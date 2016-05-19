@@ -21,7 +21,7 @@
             </p>
 
             <a class="btn btn-default" href="Login.aspx" style="width: 91px">Registar &raquo;</a>
-            </p>
+           
         </div>
         <div class="col-md-4 style="background:white;">
             <h2>Localização e Contactos</h2>
