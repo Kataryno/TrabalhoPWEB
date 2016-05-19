@@ -49,12 +49,14 @@ namespace LuxCatering
                     "Password = pweb;";
                 //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Data Source=espinheira.no-ip.org;Initial Catalog=LuxCatering-DB;Persist Security Info=True;User ID=sa;Password=pweb"].ConnectionString);
                 conn.Open();
-                string insertQuery = "insert into UTILIZADOR (NOME,EMAIL,PASSWORD,LOCALIDADE) values (@Utiliz,@Email,@Pass,@Local) ";
+                string insertQuery = "insert into UTILIZADOR (NOME,EMAIL,PASSWORD,LOCALIDADE,NIF) values (@Utiliz,@Email,@Pass,@Local,@NIF) ";
                 SqlCommand com = new SqlCommand(insertQuery, conn);
                 com.Parameters.AddWithValue("@Utiliz", TBUserName.Text);
                 com.Parameters.AddWithValue("@Email", TBEmail.Text);
                 com.Parameters.AddWithValue("@Pass", TBPassword.Text);
                 com.Parameters.AddWithValue("@Local", DropDownList1.Text);
+                com.Parameters.AddWithValue("@nif", NIF.Text);
+
 
                 com.ExecuteNonQuery();
                 Response.Redirect("Admin/Manager.aspx");

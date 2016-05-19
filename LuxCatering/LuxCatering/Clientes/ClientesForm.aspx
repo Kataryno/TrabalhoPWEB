@@ -18,6 +18,7 @@
                   
                 </td>
                 <td>
+                    <br /><br />
                     <div id="orca">
 
 
@@ -32,7 +33,7 @@
                                 <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
                             </Columns>
                         </asp:GridView>
-
+                         <br /> <br />
                         <asp:Button ID="Button1" runat="server" Text="Solicitar Orçamento" />
 
                         <br />

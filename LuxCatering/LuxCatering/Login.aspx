@@ -64,6 +64,13 @@
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Necessario localidade" ForeColor="Red" InitialValue="Selecciona Localidade"></asp:RequiredFieldValidator>
                 </td>
             </tr>
+            <td class="auto-style3">NIF:</td>
+                <td>
+                    <asp:TextBox ID="NIF" runat="server"  Width="180px"></asp:TextBox>
+                </td>
+                <td class="auto-style4">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="NIF" ErrorMessage="Necessario a NIF" ForeColor="Red"></asp:RequiredFieldValidator>
+                </td>
             <tr>
                 <td class="auto-style3">&nbsp;</td>
                 <td>&nbsp;</td>
