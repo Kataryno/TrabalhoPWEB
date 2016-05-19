@@ -1,18 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="LuxCatering.User" %>
+﻿<%@ Page Language="C#"  MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="User.aspx.cs" Inherits="LuxCatering.User" %>
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
+  
+    <div id="form1" runat="server">
     <div class="auto-style1">
      <table class="auto-style1">
             <tr>
@@ -51,6 +42,6 @@
         </table>
     
     </div>
-    </form>
-</body>
-</html>
+ </div>
+    
+    </asp:Content>
