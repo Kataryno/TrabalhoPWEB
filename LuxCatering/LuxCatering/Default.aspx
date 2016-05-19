@@ -20,7 +20,7 @@
                 Será um prazer contar consigo. Pode registar-se gratuitamente. A nossa plataforma irá ajudá-lo a encontrar clientes, aumentar as suas receitas e a expandir o seu negócio. 
             </p>
 
-            <a class="btn btn-default" href="~/Account/Register.aspx">Registar &raquo;</a>
+            <a class="btn btn-default" href="Login.aspx" style="width: 91px">Registar &raquo;</a>
             </p>
         </div>
         <div class="col-md-4 style="background:white;">
