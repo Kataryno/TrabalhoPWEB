@@ -4,7 +4,14 @@ body {
     padding-bottom: 20px;
     background-image:url("wallpaper3.jpg")
 }
+h1{
+    font-family:Papyrus;
+}
 
+p{
+    font-family:Calibri;
+    font-weight: bold;
+}
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -33,6 +40,9 @@ input[type="select"] {
     .jumbotron {
         margin-top: 20px;
         font-family:Impact;
+        background-color: lightgray;
+        border-radius: 25px;
+        padding: 20px; 
     }
     .body-content {
         padding: 0;

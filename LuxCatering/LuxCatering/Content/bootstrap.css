@@ -860,6 +860,13 @@ pre code {
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+  /*margin-right:1px;*/
+  background-color: lightgrey;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  padding: 20px; 
+  width: 200px;
+  height: 300px;
 
 }
 
