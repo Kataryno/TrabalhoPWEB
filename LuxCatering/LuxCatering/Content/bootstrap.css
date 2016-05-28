@@ -858,14 +858,9 @@ pre code {
 .col-lg-12 {
   position: relative;
   min-height: 1px;
-  margin-right:1px;
-  background-color: lightgrey;
-  border-radius: 20px;
-  border: 2px solid #000000;
-  padding: 20px; 
-  width: 200px;
-  height: 300px;
-  
+  padding-right: 15px;
+  padding-left: 15px;
+
 }
 
 .col-xs-1,
@@ -2058,7 +2053,6 @@ fieldset[disabled] .btn {
   color: #333333;
   background-color: #ffffff;
   border-color: #cccccc;
-  text-align:center;
 }
 
 .btn-default:hover,
