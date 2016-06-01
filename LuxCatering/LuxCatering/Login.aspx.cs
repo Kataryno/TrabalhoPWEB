@@ -4,71 +4,64 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
+using System.Data;
 using System.Configuration;
+using System.Data.SqlClient;
+using System.Web.Security;
+
 namespace LuxCatering
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class User : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString =
-                    "Data Source=espinheira.no-ip.org;" +
-                    "Initial Catalog=LuxCatering-DB;" +
-                    "User id=sa;" +
-                    "Password = pweb;";
-                
-                conn.Open();
-                string checkuser = "select count(*) from UTILIZADOR where NOME ='" + TBUserName.Text + "'";
-                SqlCommand com = new SqlCommand(checkuser,conn);
-                int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
 
-
-                    if (temp == 1)
-                {
-                    Response.Write("Utilizador já existe");
-                }
-                    conn.Close();
-                    
-                    
-                    }
-                
         }
+
+        protected void TBUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                SqlConnection conn = new SqlConnection();
+             SqlConnection conn = new SqlConnection();
                 conn.ConnectionString =
                     "Data Source=espinheira.no-ip.org;" +
                     "Initial Catalog=LuxCatering-DB;" +
                     "User id=sa;" +
                     "Password = pweb;";
-                //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Data Source=espinheira.no-ip.org;Initial Catalog=LuxCatering-DB;Persist Security Info=True;User ID=sa;Password=pweb"].ConnectionString);
+
                 conn.Open();
-                string insertQuery = "insert into UTILIZADOR (NOME,EMAIL,PASSWORD,LOCALIDADE,NIF) values (@Utiliz,@Email,@Pass,@Local,@NIF) ";
-                SqlCommand com = new SqlCommand(insertQuery, conn);
-                com.Parameters.AddWithValue("@Utiliz", TBUserName.Text);
-                com.Parameters.AddWithValue("@Email", TBEmail.Text);
-                com.Parameters.AddWithValue("@Pass", TBPassword.Text);
-                com.Parameters.AddWithValue("@Local", DropDownList1.Text);
-                com.Parameters.AddWithValue("@nif", NIF.Text);
+                string checkuser = "select count(*) from UTILIZADOR where NOME ='" + TBUserName.Text + "'";
+                SqlCommand com = new SqlCommand(checkuser, conn);
+                int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
 
+            conn.Close();
+            if (temp == 1)
+                {
+                conn.Open();
+                string checkPassword = "select PASSWORD from UTILIZADOR where NOME ='" + TBUserName.Text + "'";
+                SqlCommand passcom = new SqlCommand(checkPassword, conn);
+                string password = passcom.ExecuteScalar().ToString();
+                if(password == TBPassword.Text)
+                {
+                    Response.Write("login com sucesso");
+                }
 
-                com.ExecuteNonQuery();
-                Response.Redirect("Admin/Manager.aspx");
-                Response.Write("foi submetido registo");
-                conn.Close();
+                else
+                {
+                    Response.Write("password errada");
+                }
             }
-            catch(Exception ex)
+            else
             {
-
-                Response.Write("Error" + ex.ToString());
+                Response.Write("Utilizador nao existe");
             }
-           
+               
+
+
+          
         }
     }
 }
