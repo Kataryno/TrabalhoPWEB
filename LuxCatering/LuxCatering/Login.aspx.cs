@@ -59,7 +59,8 @@ namespace LuxCatering
 
 
                 com.ExecuteNonQuery();
-                Response.Redirect("Admin/Manager.aspx");
+                
+                Response.Redirect("Default.aspx");
                 Response.Write("foi submetido registo");
                 conn.Close();
             }
