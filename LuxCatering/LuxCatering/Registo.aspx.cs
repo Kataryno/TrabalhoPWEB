@@ -55,11 +55,11 @@ namespace LuxCatering
                 com.Parameters.AddWithValue("@Email", TBEmail.Text);
                 com.Parameters.AddWithValue("@Pass", TBPassword.Text);
                 com.Parameters.AddWithValue("@Local", DropDownList1.Text);
-                com.Parameters.AddWithValue("@nif", NIF.Text);
+                com.Parameters.AddWithValue("@NIF", NIF.Text);
 
 
                 com.ExecuteNonQuery();
-                Response.Redirect("Admin/Manager.aspx");
+                Response.Redirect("Default.aspx");
                 Response.Write("foi submetido registo");
                 conn.Close();
             }

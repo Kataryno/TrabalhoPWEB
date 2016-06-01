@@ -69,8 +69,8 @@
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="Login.aspx">Registar</a></li>
-                                <li><a runat="server" href="User.aspx">Log in</a></li>
+                                <li><a runat="server" href="Registo.aspx">Registar</a></li>
+                                <li><a runat="server" href="Login.aspx">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
@@ -87,7 +87,7 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+        <div class="container body-content" style="height:60%">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
