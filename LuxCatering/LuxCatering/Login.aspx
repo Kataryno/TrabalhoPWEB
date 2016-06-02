@@ -37,7 +37,10 @@
                 <td>
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Login" Width="81px" />
                    
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Login ID="Login1" runat="server">
+                    </asp:Login>
+                </td>
             </tr>
         </table>
     
