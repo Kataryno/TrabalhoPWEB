@@ -12,63 +12,13 @@ namespace LuxCatering
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack)
-            {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString =
-                    "Data Source=espinheira.no-ip.org;" +
-                    "Initial Catalog=LuxCatering-DB;" +
-                    "User id=sa;" +
-                    "Password = pweb;";
-                
-                conn.Open();
-                string checkuser = "select count(*) from UTILIZADOR where NOME ='" + TBUserName.Text + "'";
-                SqlCommand com = new SqlCommand(checkuser,conn);
-                int temp = Convert.ToInt32(com.ExecuteScalar().ToString());
-
-
-                    if (temp == 1)
-                {
-                    Response.Write("Utilizador já existe");
-                }
-                    conn.Close();
-                    
-                    
-                    }
-                
-        }
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString =
-                    "Data Source=espinheira.no-ip.org;" +
-                    "Initial Catalog=LuxCatering-DB;" +
-                    "User id=sa;" +
-                    "Password = pweb;";
-                //SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Data Source=espinheira.no-ip.org;Initial Catalog=LuxCatering-DB;Persist Security Info=True;User ID=sa;Password=pweb"].ConnectionString);
-                conn.Open();
-                string insertQuery = "insert into UTILIZADOR (NOME,EMAIL,PASSWORD,LOCALIDADE,NIF) values (@Utiliz,@Email,@Pass,@Local,@NIF) ";
-                SqlCommand com = new SqlCommand(insertQuery, conn);
-                com.Parameters.AddWithValue("@Utiliz", TBUserName.Text);
-                com.Parameters.AddWithValue("@Email", TBEmail.Text);
-                com.Parameters.AddWithValue("@Pass", TBPassword.Text);
-                com.Parameters.AddWithValue("@Local", DropDownList1.Text);
-                com.Parameters.AddWithValue("@NIF", NIF.Text);
-
-
-                com.ExecuteNonQuery();
-                Response.Redirect("Default.aspx");
-                Response.Write("foi submetido registo");
-                conn.Close();
-            }
-            catch(Exception ex)
-            {
-
-                Response.Write("Error" + ex.ToString());
-            }
+            
            
+        }
+
+        protected void Unnamed1_CreatedUser(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -3,90 +3,94 @@
 
 
   
-    <div id="form1" runat="server">
-    
-        <br />
-        <br />
-        <br />
-    
-        <table class="auto-style1" >
-            <tr>
-                <td class="auto-style3">Nome de utilizador:</td>
-                <td class="auto-style2">
-                    <asp:TextBox ID="TBUserName" runat="server" Width="180px"></asp:TextBox>
-                </td>
-                <td class="auto-style4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TBUserName" ErrorMessage="Necessario o nome do utilizador" ForeColor="Red"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style3">E-mail:</td>
-                <td>
-                    <asp:TextBox ID="TBEmail" runat="server" Width="180px"></asp:TextBox>
-                </td>
-                <td class="auto-style4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TBEmail" ErrorMessage="Necessario o e-mail" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <br />
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="TBEmail" ErrorMessage="deve ser valido" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style3">Password:</td>
-                <td>
-                    <asp:TextBox ID="TBPassword" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
-                </td>
-                <td class="auto-style4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TBPassword" ErrorMessage="Necessario a password" ForeColor="Red"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style3">Confirme a Password:</td>
-                <td>
-                    <asp:TextBox ID="TBCPassword" runat="server" TextMode="Password" Width="180px"></asp:TextBox>
-                </td>
-                <td class="auto-style4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TBCPassword" ErrorMessage="Deve ser igual a password" ForeColor="Red"></asp:RequiredFieldValidator>
-                    <br />
-                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="TBPassword" ControlToValidate="TBCPassword" ErrorMessage="devem ser iguais"></asp:CompareValidator>
-                </td>
-            </tr>
-            <tr>
-                <td class="auto-style3">Localidade:</td>
-                <td>
-                    <asp:DropDownList ID="DropDownList1" runat="server" Width="180px">
-                        <asp:ListItem>Selecciona Localidade</asp:ListItem>
-                        <asp:ListItem>Norte</asp:ListItem>
-                        <asp:ListItem>Centro</asp:ListItem>
-                        <asp:ListItem>Sul</asp:ListItem>
-                    </asp:DropDownList>
-                </td>
-                <td class="auto-style4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="DropDownList1" ErrorMessage="Necessario localidade" ForeColor="Red" InitialValue="Selecciona Localidade"></asp:RequiredFieldValidator>
-                </td>
-            </tr>
-            <td class="auto-style3">NIF:</td>
-                <td>
-                    <asp:TextBox ID="NIF" runat="server"  Width="180px"></asp:TextBox>
-                </td>
-                <td class="auto-style4">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="NIF" ErrorMessage="Necessario a NIF" ForeColor="Red"></asp:RequiredFieldValidator>
-                </td>
-            <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>&nbsp;</td>
-                <td class="auto-style4">&nbsp;</td>
-            </tr>
-            <tr>
-                <td class="auto-style3">&nbsp;</td>
-                <td>
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Submeter" />
-                    <input id="Reset1" type="reset" value="reset" /></td>
-                <td class="auto-style4">&nbsp;</td>
-            </tr>
-        </table>
-    
+    <div id="registo" runat="server">
+
+        <asp:createuserwizard runat="server" ID="ctl06" BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em"> 
+            <ContinueButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
+            <CreateUserButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
+            <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+            <WizardSteps> <asp:CreateUserWizardStep runat="server"> 
+                <ContentTemplate>
+                    <table style="font-family:Verdana;font-size:100%;">
+                        <tr>
+                            <td align="center" colspan="2" style="color:White;background-color:#507CD1;font-weight:bold;">Registar Nova Conta</td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="ctl06">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="ctl06">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword">Confirmar Password:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword" ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required." ValidationGroup="ctl06">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Email" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="E-mail is required." ToolTip="E-mail is required." ValidationGroup="ctl06">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="QuestionLabel" runat="server" AssociatedControlID="Question">Security Question:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Question" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" ControlToValidate="Question" ErrorMessage="Security question is required." ToolTip="Security question is required." ValidationGroup="ctl06">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="AnswerLabel" runat="server" AssociatedControlID="Answer">Security Answer:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Answer" runat="server"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" ControlToValidate="Answer" ErrorMessage="Security answer is required." ToolTip="Security answer is required." ValidationGroup="ctl06">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="2">
+                                <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword" Display="Dynamic" ErrorMessage="The Password and Confirmation Password must match." ValidationGroup="ctl06"></asp:CompareValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="2" style="color:Red;">
+                                <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
+                            </td>
+                        </tr>
+                    </table>
+                </ContentTemplate>
+                </asp:CreateUserWizardStep>
+                <asp:CompleteWizardStep runat="server"/> </WizardSteps> 
+            <HeaderStyle BackColor="#5D7B9D" BorderStyle="Solid" Font-Bold="True" Font-Size="0.9em" ForeColor="White" HorizontalAlign="Center" />
+            <NavigationButtonStyle BackColor="#FFFBFF" BorderColor="#CCCCCC" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" ForeColor="#284775" />
+            <SideBarButtonStyle BorderWidth="0px" Font-Names="Verdana" ForeColor="White" />
+            <SideBarStyle BackColor="#5D7B9D" BorderWidth="0px" Font-Size="0.9em" VerticalAlign="Top" />
+            <StepStyle BorderWidth="0px" />
+        </asp:createuserwizard>
     </div>
-    
+        
     </asp:Content>
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="Stylesheets">
@@ -96,19 +100,7 @@
             height: 901px;
             width: 1254px;
         }
-        .auto-style1 {
-            width: 77px;
-        }
-        .auto-style2 {
-            width: 106px;
-        }
-        .auto-style3 {
-            width: 143px;
-        }
-        .auto-style4 {
-            width: 165px;
-        }
-    </style>
+        </style>
 </asp:Content>
 
 
