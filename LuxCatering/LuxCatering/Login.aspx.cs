@@ -46,30 +46,23 @@ namespace LuxCatering
                 string password = passcom.ExecuteScalar().ToString();
                 if (password == TBPassword.Text)
                 {
-                    Response.Write("login com sucesso");
+                    Response.Write(("<script type=\"text/javascript\">alert('login com sucesso');</script>"));
+                    FormsAuthentication.RedirectFromLoginPage(TBUserName.Text, true);
+
                 }
 
                 else
                 {
-                    Response.Write("password errada");
+                    Response.Write(("<script type=\"text/javascript\">alert('Password errada');</script>"));
                 }
             }
             else
             {
-                Response.Write("Utilizador nao existe");
+                Response.Write(("<script type=\"text/javascript\">alert('Utilizador nao existe');</script>"));
             }
 
 
-      //      com.ExecuteNonQuery();
-        //    Response.Redirect("Admin/Manager.aspx");
-          //  Response.Write("foi submetido registo");
-           // conn.Close();
-        
-       //     catch(Exception ex)
-       //     {
 
-       ////         Response.Write("Error" + ex.ToString());
-          //  }
 
         }
 

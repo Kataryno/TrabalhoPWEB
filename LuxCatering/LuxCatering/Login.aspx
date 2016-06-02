@@ -5,7 +5,7 @@
   
     <div id="form1" runat="server">
     <div class="auto-style1">
-     <table class="auto-style1">
+     <table class="auto-style1" >
             <tr>
                 <td class="auto-style4">Nome de utilizador:</td>
                 <td class="auto-style2">

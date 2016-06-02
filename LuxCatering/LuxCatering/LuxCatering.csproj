@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -185,6 +186,7 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="FornecedoresForm.aspx" />
+    <Content Include="LoginR.aspx" />
     <Content Include="Registo.aspx" />
     <Content Include="Admin\Manager.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -382,6 +384,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LoginR.aspx.cs">
+      <DependentUpon>LoginR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginR.aspx.designer.cs">
+      <DependentUpon>LoginR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Registo.aspx.cs">
       <DependentUpon>Registo.aspx</DependentUpon>

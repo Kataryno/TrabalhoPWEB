@@ -18,9 +18,11 @@ p{
 table.auto-style1{
     text-align:center;
     margin-left:auto; 
+    margin-top:100px; 
     margin-right:auto;
     padding-right: 15px;
     padding-left: 25px;
+    padding-top: 25px;
     background-color: lightgrey;
     border-radius: 25px;
     /*border: 2px solid #000000;*/
@@ -33,6 +35,9 @@ table.auto-style1{
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    height:80%;
+    margin-top:100px;
+
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -61,6 +66,7 @@ input[type="select"] {
     }
     .body-content {
         padding: 0;
+        height:80%;
     }
     
 }
@@ -72,4 +78,6 @@ input[type="select"] {
     margin-left: auto;
     margin-right: auto;
     font-weight: bold;
+    position:absolute;
+   bottom:0;
 }
