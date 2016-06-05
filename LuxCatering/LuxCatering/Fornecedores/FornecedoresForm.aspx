@@ -41,6 +41,8 @@
                     <h4>Tabela de Produtos:</h4>
                     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" OnRowDeleted="GridView1_RowDeleted" Width="568px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                         <Columns>
+                            <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" SortExpression="ID_PRODUTO" ReadOnly="True" />
+                            <asp:BoundField DataField="ID_CATEGORIA" HeaderText="ID_CATEGORIA" SortExpression="ID_CATEGORIA" />
                             <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
                             <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
                         </Columns>
@@ -56,14 +58,16 @@
                     </asp:GridView>
                     <br /> <br />
                     <h4>Introduzir novo produto:</h4>
-                    <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateInsertButton="True" AutoGenerateRows="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" Height="50px" Width="569px" CellPadding="4" ForeColor="#333333" GridLines="None">
+                    <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateInsertButton="True" AutoGenerateRows="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" Height="50px" Width="569px" CellPadding="4" ForeColor="#333333" GridLines="None" OnItemCreated="DetailsView1_ItemCreated" OnPageIndexChanging="DetailsView1_PageIndexChanging">
                         <AlternatingRowStyle BackColor="White" />
                         <CommandRowStyle BackColor="#C5BBAF" Font-Bold="True" />
                         <EditRowStyle BackColor="#7C6F57" />
                         <FieldHeaderStyle BackColor="#D0D0D0" Font-Bold="True" />
                         <Fields>
-                            <asp:BoundField ApplyFormatInEditMode="True" DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
-                            <asp:BoundField ApplyFormatInEditMode="True" DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
+                            <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" SortExpression="ID_PRODUTO" ReadOnly="True" />
+                            <asp:BoundField DataField="ID_CATEGORIA" HeaderText="ID_CATEGORIA" SortExpression="ID_CATEGORIA" />
+                            <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
+                            <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
                         </Fields>
                         <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
                         <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -76,7 +80,23 @@
 
 
                          <br /> 
-                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PRODUTO]"></asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PRODUTO]" DeleteCommand="DELETE FROM [PRODUTO] WHERE [ID_PRODUTO] = @ID_PRODUTO" InsertCommand="INSERT INTO [PRODUTO] ([ID_PRODUTO], [ID_CATEGORIA], [NOME], [DESCRICAO]) VALUES (@ID_PRODUTO, @ID_CATEGORIA, @NOME, @DESCRICAO)" UpdateCommand="UPDATE [PRODUTO] SET [ID_CATEGORIA] = @ID_CATEGORIA, [NOME] = @NOME, [DESCRICAO] = @DESCRICAO WHERE [ID_PRODUTO] = @ID_PRODUTO">
+                            <DeleteParameters>
+                                <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
+                                <asp:Parameter Name="ID_CATEGORIA" Type="Int32" />
+                                <asp:Parameter Name="NOME" Type="String" />
+                                <asp:Parameter Name="DESCRICAO" Type="String" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="ID_CATEGORIA" Type="Int32" />
+                                <asp:Parameter Name="NOME" Type="String" />
+                                <asp:Parameter Name="DESCRICAO" Type="String" />
+                                <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
+                            </UpdateParameters>
+                         </asp:SqlDataSource>
                         <br />
 
                         <br />
