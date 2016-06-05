@@ -2,7 +2,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
-  
+   <div class="jumbotron">
     <div id="form1" runat="server">
     
       
@@ -62,7 +62,7 @@
       
     
     </div>
-    
+  </div>  
     </asp:Content>
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="Stylesheets">
