@@ -2,36 +2,43 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
 
-   <div class="jumbotron">
+   <div style="height:70%; width:90%; background-color:antiquewhite">
     <div id="form1" runat="server">
     
       
     
         <table class="nav-justified">
             <tr>
-                <td class="auto-style1">
-                    <asp:Label ID="Label1" runat="server" Text="Introduzir Produto"></asp:Label>
-                <br /><br />
+                <td class="auto-style1" style="float:right;"><br />
+               <div style="margin-left:10%;margin-top:15% border-style: solid;border-width: 5px;border-color: black;background-color:bisque">
+                    <asp:Label ID="Label1" runat="server" Text="Introduzir Produto" style="float:center"></asp:Label>
+               </div>
+                         <br /><br />
+                     <div style="margin-left:10%;margin-top:15% border-style: solid;border-width: 5px;border-color: black;background-color:burlywood">
                     <asp:Label ID="Label2" runat="server" Text="Responder a Orçamento"></asp:Label>
-                
+                 </div>
                   
                 </td>
-                <td>
-                    <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateInsertButton="True" AutoGenerateRows="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" Height="50px" Width="125px">
+                <td style="float:center">
+                    <br />
+                    <br /> <br />
+                    <h4>Tabela de Produtos:</h4>
+                    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" OnRowDeleted="GridView1_RowDeleted" Width="568px">
+                        <Columns>
+                            <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
+                            <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
+                        </Columns>
+                    </asp:GridView>
+                    <br /> <br />
+                    <h4>Introduzir novo produto:</h4>
+                    <asp:DetailsView ID="DetailsView1" runat="server" AllowPaging="True" AutoGenerateInsertButton="True" AutoGenerateRows="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" Height="50px" Width="569px">
                         <Fields>
                             <asp:BoundField ApplyFormatInEditMode="True" DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
                             <asp:BoundField ApplyFormatInEditMode="True" DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
                         </Fields>
                     </asp:DetailsView>
                     <br />
-                    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" OnRowDeleted="GridView1_RowDeleted">
-                        <Columns>
-                            <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
-                            <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
-                        </Columns>
-                    </asp:GridView>
-                    <br />
-                    <div id="orca">
+                    <div id="orca" style="float:center">
 
 
 
