@@ -39,7 +39,7 @@
                     <br /> <br />
                      <div id="produto" style="float:right;margin-right:15%">
                     <h4>Tabela de Produtos:</h4>
-                    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" OnRowDeleted="GridView1_RowDeleted" Width="568px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
+                    <asp:GridView ID="GridView1_P" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" OnRowDeleted="GridView1_RowDeleted" Width="568px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                         <Columns>
                             <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" SortExpression="ID_PRODUTO" ReadOnly="True" />
                             <asp:BoundField DataField="ID_CATEGORIA" HeaderText="ID_CATEGORIA" SortExpression="ID_CATEGORIA" />
@@ -65,7 +65,6 @@
                         <FieldHeaderStyle BackColor="#D0D0D0" Font-Bold="True" />
                         <Fields>
                             <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" SortExpression="ID_PRODUTO" ReadOnly="True" />
-                            <asp:BoundField DataField="ID_CATEGORIA" HeaderText="ID_CATEGORIA" SortExpression="ID_CATEGORIA" />
                             <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
                             <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
                         </Fields>
@@ -96,6 +95,26 @@
                                 <asp:Parameter Name="DESCRICAO" Type="String" />
                                 <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
                             </UpdateParameters>
+                         </asp:SqlDataSource>
+                         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" DeleteCommand="DELETE FROM [PRODUTO] WHERE [ID_PRODUTO] = @ID_PRODUTO" InsertCommand="INSERT INTO [PRODUTO] ([ID_PRODUTO], [ID_CATEGORIA], [NOME], [DESCRICAO]) VALUES (@ID_PRODUTO, @ID_CATEGORIA, @NOME, @DESCRICAO)" OnSelecting="SqlDataSource3_Selecting" SelectCommand="SELECT * FROM [PRODUTO] WHERE ([ID_PRODUTO] = @ID_PRODUTO)" UpdateCommand="UPDATE [PRODUTO] SET [ID_CATEGORIA] = @ID_CATEGORIA, [NOME] = @NOME, [DESCRICAO] = @DESCRICAO WHERE [ID_PRODUTO] = @ID_PRODUTO">
+                             <DeleteParameters>
+                                 <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
+                             </DeleteParameters>
+                             <InsertParameters>
+                                 <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
+                                 <asp:Parameter Name="ID_CATEGORIA" Type="Int32" />
+                                 <asp:Parameter Name="NOME" Type="String" />
+                                 <asp:Parameter Name="DESCRICAO" Type="String" />
+                             </InsertParameters>
+                             <SelectParameters>
+                                 <asp:ControlParameter ControlID="GridView1_P" Name="ID_PRODUTO" PropertyName="SelectedValue" Type="Int32" />
+                             </SelectParameters>
+                             <UpdateParameters>
+                                 <asp:Parameter Name="ID_CATEGORIA" Type="Int32" />
+                                 <asp:Parameter Name="NOME" Type="String" />
+                                 <asp:Parameter Name="DESCRICAO" Type="String" />
+                                 <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
+                             </UpdateParameters>
                          </asp:SqlDataSource>
                         <br />
 

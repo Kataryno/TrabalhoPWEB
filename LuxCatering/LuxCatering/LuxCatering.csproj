@@ -185,7 +185,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="FornecedoresForm.aspx" />
+    <Content Include="FornecedoresFormR.aspx" />
     <Content Include="Fornecedores\FornecedoresForm.aspx" />
     <Content Include="LoginR.aspx" />
     <Content Include="Registo.aspx" />
@@ -375,12 +375,12 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="FornecedoresForm.aspx.cs">
-      <DependentUpon>FornecedoresForm.aspx</DependentUpon>
+    <Compile Include="FornecedoresFormR.aspx.cs">
+      <DependentUpon>FornecedoresFormR.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="FornecedoresForm.aspx.designer.cs">
-      <DependentUpon>FornecedoresForm.aspx</DependentUpon>
+    <Compile Include="FornecedoresFormR.aspx.designer.cs">
+      <DependentUpon>FornecedoresFormR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedores\FornecedoresForm.aspx.cs">
       <DependentUpon>FornecedoresForm.aspx</DependentUpon>
