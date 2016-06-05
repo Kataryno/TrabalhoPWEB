@@ -10,19 +10,21 @@
         <table class="nav-justified">
             <tr>
                 <td class="auto-style1" style="float:right;"><br />
-                    <div></div>
-               <div style="margin-left:10%;margin-top:15% border-style: solid;border-width: 5px;border-color: black;background-color:bisque">
-                    <asp:Label ID="Label1" runat="server" Text="Introduzir Produto" style="float:center"></asp:Label>
+                    <div></div>,
+               <div style="margin-left:10%;margin-top:15%; border-style:solid;border-width: 5px;border-color:brown;background-color:bisque">
+                    <asp:Label ID="Label1" runat="server" Text="Introduzir Produto" style="padding: 10px;width: 60%;"></asp:Label>
                </div>
                          <br /><br />
-                     <div style="margin-left:10%;margin-top:15% border-style: solid;border-width: 5px;border-color: black;background-color:burlywood">
-                    <asp:Label ID="Label2" runat="server" Text="Responder a Orçamento"></asp:Label>
+                     <div style="margin-left:10%;margin-top:15%; border-style: solid;border-width: 5px;border-color:brown;background-color:burlywood">
+                    <asp:Label ID="Label2" runat="server" Text="Responder a Orçamento" style="padding: 10px;width: 60%;"></asp:Label>
                  </div>
                   
                 </td>
-                <td style="float:center">
+               
+                <td >
                     <br />
                     <br /> <br />
+                     <div style="float:right;margin-right:15%">
                     <h4>Tabela de Produtos:</h4>
                     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" OnRowDeleted="GridView1_RowDeleted" Width="568px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                         <Columns>
@@ -75,8 +77,9 @@
 
 
                     </div>
-
+                          </div>
                     &nbsp;</td>
+               
             </tr>
             <tr>
                 <td class="auto-style1">&nbsp;</td>
