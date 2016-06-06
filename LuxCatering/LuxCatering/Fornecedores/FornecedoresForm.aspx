@@ -15,7 +15,9 @@
             document.getElementById('orcamento').style.display = 'block';
         }
     </script>
-   <div style="height:70%; width:90%; background-color:antiquewhite">
+
+
+   <div style="height:90%; width:90%; background-color:antiquewhite">
     <div id="form1" runat="server">
     
       
@@ -36,13 +38,12 @@
                
                 <td >
                     <br />
-                    <br /> <br />
-                     <div id="produto" style="float:right;margin-left:15%;padding:15px">
+                    
+                     <div id="produto" style="float:left;margin-left:15%;padding:15px; height: 834px;">
                     <h4>Tabela de Produtos:</h4>
                     <asp:GridView ID="GridView1_P" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" OnRowDeleted="GridView1_RowDeleted" Width="568px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                         <Columns>
                             <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" SortExpression="ID_PRODUTO" ReadOnly="True" />
-                            <asp:BoundField DataField="ID_CATEGORIA" HeaderText="ID_CATEGORIA" SortExpression="ID_CATEGORIA" />
                             <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
                             <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
                         </Columns>
@@ -121,7 +122,7 @@
                         <br />
 
                     </div>
-                    <div id="orcamento" style="float:right;margin-left:15%;display:none;padding:15px">
+                    <div id="orcamento" style="float:right;margin-left:15%;padding:15px; height: 834px;">
                         <br />
                         <h4>Pedidos de Clientes:</h4>
                         <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID_PEDIDO" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True">
@@ -148,7 +149,7 @@
                             <SortedDescendingHeaderStyle BackColor="#15524A" />
                             </asp:GridView>
                         
-                        <h4>Responder:</h4>
+                        <h4>Detalhe do pedido:</h4>
                        
 
                    
@@ -177,15 +178,19 @@
                             <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
                         </UpdateParameters>
                         </asp:SqlDataSource>
-                        <asp:DetailsView ID="DetailsView2" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="ID_PEDIDO,ID_LINHA_PEDIDO" DataSourceID="SqlDataSource4" Height="50px" Width="125px">
-                            <Fields>
-                                <asp:BoundField DataField="ID_PEDIDO" HeaderText="ID_PEDIDO" ReadOnly="True" SortExpression="ID_PEDIDO" />
-                                <asp:BoundField DataField="ID_LINHA_PEDIDO" HeaderText="ID_LINHA_PEDIDO" ReadOnly="True" SortExpression="ID_LINHA_PEDIDO" />
-                                <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" SortExpression="ID_PRODUTO" />
-                                <asp:BoundField DataField="QTD_PRODUTO" HeaderText="QTD_PRODUTO" SortExpression="QTD_PRODUTO" />
-                                <asp:CommandField ShowEditButton="True" />
-                            </Fields>
-                        </asp:DetailsView>
+                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
+                            <EditRowStyle BackColor="#2461BF" />
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#EFF3FB" />
+                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                        </asp:GridView>
                         <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" DeleteCommand="DELETE FROM [LINHA_PEDIDO] WHERE [ID_PEDIDO] = @ID_PEDIDO AND [ID_LINHA_PEDIDO] = @ID_LINHA_PEDIDO" InsertCommand="INSERT INTO [LINHA_PEDIDO] ([ID_PEDIDO], [ID_LINHA_PEDIDO], [ID_PRODUTO], [QTD_PRODUTO]) VALUES (@ID_PEDIDO, @ID_LINHA_PEDIDO, @ID_PRODUTO, @QTD_PRODUTO)" SelectCommand="SELECT * FROM [LINHA_PEDIDO]" UpdateCommand="UPDATE [LINHA_PEDIDO] SET [ID_PRODUTO] = @ID_PRODUTO, [QTD_PRODUTO] = @QTD_PRODUTO WHERE [ID_PEDIDO] = @ID_PEDIDO AND [ID_LINHA_PEDIDO] = @ID_LINHA_PEDIDO">
                             <DeleteParameters>
                                 <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
@@ -204,9 +209,46 @@
                                 <asp:Parameter Name="ID_LINHA_PEDIDO" Type="Int32" />
                             </UpdateParameters>
                         </asp:SqlDataSource>
+                        <asp:SqlDataSource ID="SqlDataSource5" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" DeleteCommand="DELETE FROM [ORCAMENTO] WHERE [ID_ORCAMENTO] = @ID_ORCAMENTO" InsertCommand="INSERT INTO [ORCAMENTO] ([ID_ORCAMENTO], [ID_PEDIDO], [ID_FORNECEDOR], [NOME], [DATA_CRIACAO], [PRECO_TOTAL]) VALUES (@ID_ORCAMENTO, @ID_PEDIDO, @ID_FORNECEDOR, @NOME, @DATA_CRIACAO, @PRECO_TOTAL)" SelectCommand="SELECT * FROM [ORCAMENTO]" UpdateCommand="UPDATE [ORCAMENTO] SET [ID_PEDIDO] = @ID_PEDIDO, [ID_FORNECEDOR] = @ID_FORNECEDOR, [NOME] = @NOME, [DATA_CRIACAO] = @DATA_CRIACAO, [PRECO_TOTAL] = @PRECO_TOTAL WHERE [ID_ORCAMENTO] = @ID_ORCAMENTO">
+                            <DeleteParameters>
+                                <asp:Parameter Name="ID_ORCAMENTO" Type="Int32" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="ID_ORCAMENTO" Type="Int32" />
+                                <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
+                                <asp:Parameter Name="ID_FORNECEDOR" Type="Int32" />
+                                <asp:Parameter Name="NOME" Type="String" />
+                                <asp:Parameter Name="DATA_CRIACAO" Type="DateTime" />
+                                <asp:Parameter Name="PRECO_TOTAL" Type="Decimal" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
+                                <asp:Parameter Name="ID_FORNECEDOR" Type="Int32" />
+                                <asp:Parameter Name="NOME" Type="String" />
+                                <asp:Parameter Name="DATA_CRIACAO" Type="DateTime" />
+                                <asp:Parameter Name="PRECO_TOTAL" Type="Decimal" />
+                                <asp:Parameter Name="ID_ORCAMENTO" Type="Int32" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
+                         <h4>Enviar Orçamento:</h4>
+                        <asp:detailsview runat="server" height="50px" width="549px" DataSourceID="SqlDataSource5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                            <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
+                            <EditRowStyle BackColor="#999999" />
+                            <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True" />
+                            <Fields>
+                                <asp:CommandField ShowEditButton="True" />
+                            </Fields>
+                            <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                        </asp:detailsview>
+
                     </div>
                        
-                    &nbsp;</td>
+                    &nbsp;
+                </td>
                
             </tr>
             <tr>
