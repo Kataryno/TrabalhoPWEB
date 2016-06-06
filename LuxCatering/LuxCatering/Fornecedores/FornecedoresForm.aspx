@@ -29,7 +29,7 @@
                </div>
                          <br /><br />
                      <div  onclick="orcamento()" style="margin-left:10%;margin-top:15%; border-style: solid;border-width: 5px;border-color:brown;background-color:burlywood">
-                    <asp:Label ID="Label2" runat="server" Text="Responder a Orçamento" style="padding: 10px;width: 60%;"></asp:Label>
+                    <asp:Label ID="Label2" runat="server" Text="Responder a Pedidos" style="padding: 10px;width: 60%;"></asp:Label>
                  </div>
                   
                 </td>
@@ -37,7 +37,7 @@
                 <td >
                     <br />
                     <br /> <br />
-                     <div id="produto" style="float:right;margin-right:15%">
+                     <div id="produto" style="float:right;margin-left:15%;padding:15px">
                     <h4>Tabela de Produtos:</h4>
                     <asp:GridView ID="GridView1_P" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource1" OnRowDeleted="GridView1_RowDeleted" Width="568px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
                         <Columns>
@@ -121,16 +121,20 @@
                         <br />
 
                     </div>
-                    <div id="orcamento" style="float:right;margin-right:15%;display:none">
+                    <div id="orcamento" style="float:right;margin-left:15%;display:none;padding:15px">
                         <br />
-                        <h4>Orçamentos:</h4>
-                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID_PRODUTO" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None">
+                        <h4>Pedidos de Clientes:</h4>
+                        <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID_PEDIDO" DataSourceID="SqlDataSource2" ForeColor="#333333" GridLines="None" AllowPaging="True" AllowSorting="True">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" ReadOnly="True" SortExpression="ID_PRODUTO" />
-                                <asp:BoundField DataField="ID_CATEGORIA" HeaderText="ID_CATEGORIA" SortExpression="ID_CATEGORIA" />
+                                <asp:CommandField ShowSelectButton="True" />
+                                <asp:BoundField DataField="ID_PEDIDO" HeaderText="ID_PEDIDO" ReadOnly="True" SortExpression="ID_PEDIDO" />
+                                <asp:BoundField DataField="ID_CLIENTE" HeaderText="ID_CLIENTE" SortExpression="ID_CLIENTE" />
+                                <asp:BoundField DataField="ID_LOCAL" HeaderText="ID_LOCAL" SortExpression="ID_LOCAL" />
                                 <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
-                                <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
+                                <asp:BoundField DataField="DATA_CRIACAO" HeaderText="DATA_CRIACAO" SortExpression="DATA_CRIACAO" />
+                                <asp:BoundField DataField="NUM_PESSOAS" HeaderText="NUM_PESSOAS" SortExpression="NUM_PESSOAS" />
+                                <asp:BoundField DataField="DATA_EVENTO" HeaderText="DATA_EVENTO" SortExpression="DATA_EVENTO" />
                             </Columns>
                             <EditRowStyle BackColor="#7C6F57" />
                             <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
@@ -144,13 +148,62 @@
                             <SortedDescendingHeaderStyle BackColor="#15524A" />
                             </asp:GridView>
                         
-
+                        <h4>Responder:</h4>
                        
 
                    
                    
                        
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PRODUTO]"></asp:SqlDataSource>
+                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PEDIDO]" DeleteCommand="DELETE FROM [PEDIDO] WHERE [ID_PEDIDO] = @ID_PEDIDO" InsertCommand="INSERT INTO [PEDIDO] ([ID_PEDIDO], [ID_CLIENTE], [ID_LOCAL], [NOME], [DATA_CRIACAO], [NUM_PESSOAS], [DATA_EVENTO]) VALUES (@ID_PEDIDO, @ID_CLIENTE, @ID_LOCAL, @NOME, @DATA_CRIACAO, @NUM_PESSOAS, @DATA_EVENTO)" UpdateCommand="UPDATE [PEDIDO] SET [ID_CLIENTE] = @ID_CLIENTE, [ID_LOCAL] = @ID_LOCAL, [NOME] = @NOME, [DATA_CRIACAO] = @DATA_CRIACAO, [NUM_PESSOAS] = @NUM_PESSOAS, [DATA_EVENTO] = @DATA_EVENTO WHERE [ID_PEDIDO] = @ID_PEDIDO">
+                        <DeleteParameters>
+                            <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
+                        </DeleteParameters>
+                        <InsertParameters>
+                            <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
+                            <asp:Parameter Name="ID_CLIENTE" Type="Int32" />
+                            <asp:Parameter Name="ID_LOCAL" Type="Int32" />
+                            <asp:Parameter Name="NOME" Type="String" />
+                            <asp:Parameter Name="DATA_CRIACAO" Type="DateTime" />
+                            <asp:Parameter Name="NUM_PESSOAS" Type="Int32" />
+                            <asp:Parameter Name="DATA_EVENTO" Type="DateTime" />
+                        </InsertParameters>
+                        <UpdateParameters>
+                            <asp:Parameter Name="ID_CLIENTE" Type="Int32" />
+                            <asp:Parameter Name="ID_LOCAL" Type="Int32" />
+                            <asp:Parameter Name="NOME" Type="String" />
+                            <asp:Parameter Name="DATA_CRIACAO" Type="DateTime" />
+                            <asp:Parameter Name="NUM_PESSOAS" Type="Int32" />
+                            <asp:Parameter Name="DATA_EVENTO" Type="DateTime" />
+                            <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
+                        </UpdateParameters>
+                        </asp:SqlDataSource>
+                        <asp:DetailsView ID="DetailsView2" runat="server" AllowPaging="True" AutoGenerateRows="False" DataKeyNames="ID_PEDIDO,ID_LINHA_PEDIDO" DataSourceID="SqlDataSource4" Height="50px" Width="125px">
+                            <Fields>
+                                <asp:BoundField DataField="ID_PEDIDO" HeaderText="ID_PEDIDO" ReadOnly="True" SortExpression="ID_PEDIDO" />
+                                <asp:BoundField DataField="ID_LINHA_PEDIDO" HeaderText="ID_LINHA_PEDIDO" ReadOnly="True" SortExpression="ID_LINHA_PEDIDO" />
+                                <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" SortExpression="ID_PRODUTO" />
+                                <asp:BoundField DataField="QTD_PRODUTO" HeaderText="QTD_PRODUTO" SortExpression="QTD_PRODUTO" />
+                                <asp:CommandField ShowEditButton="True" />
+                            </Fields>
+                        </asp:DetailsView>
+                        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" DeleteCommand="DELETE FROM [LINHA_PEDIDO] WHERE [ID_PEDIDO] = @ID_PEDIDO AND [ID_LINHA_PEDIDO] = @ID_LINHA_PEDIDO" InsertCommand="INSERT INTO [LINHA_PEDIDO] ([ID_PEDIDO], [ID_LINHA_PEDIDO], [ID_PRODUTO], [QTD_PRODUTO]) VALUES (@ID_PEDIDO, @ID_LINHA_PEDIDO, @ID_PRODUTO, @QTD_PRODUTO)" SelectCommand="SELECT * FROM [LINHA_PEDIDO]" UpdateCommand="UPDATE [LINHA_PEDIDO] SET [ID_PRODUTO] = @ID_PRODUTO, [QTD_PRODUTO] = @QTD_PRODUTO WHERE [ID_PEDIDO] = @ID_PEDIDO AND [ID_LINHA_PEDIDO] = @ID_LINHA_PEDIDO">
+                            <DeleteParameters>
+                                <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
+                                <asp:Parameter Name="ID_LINHA_PEDIDO" Type="Int32" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
+                                <asp:Parameter Name="ID_LINHA_PEDIDO" Type="Int32" />
+                                <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
+                                <asp:Parameter Name="QTD_PRODUTO" Type="Int32" />
+                            </InsertParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
+                                <asp:Parameter Name="QTD_PRODUTO" Type="Int32" />
+                                <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
+                                <asp:Parameter Name="ID_LINHA_PEDIDO" Type="Int32" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
                     </div>
                        
                     &nbsp;</td>
