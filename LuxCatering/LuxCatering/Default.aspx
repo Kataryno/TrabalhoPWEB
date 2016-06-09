@@ -21,7 +21,7 @@
                 Será um prazer contar consigo. Pode registar-se gratuitamente. A nossa plataforma irá ajudá-lo a encontrar clientes, aumentar as suas receitas e a expandir o seu negócio. 
             </p>
             <br /><br />
-            <a class="btn btn-info btn-block" href="Login.aspx" >Saiba mais &raquo;</a>
+            <a class="btn btn-info btn-block" href="" >Saiba mais &raquo;</a>
            
         </div>
         <div class="col-md-4">
@@ -37,7 +37,7 @@
             </p>
             <br /><br /><br />
             <p>
-                <a class="btn btn-info btn-block" href="">Learn more &raquo;</a>
+                <a class="btn btn-info btn-block" href="Contact.aspx">Contactos &raquo;</a>
             </p>
         </div>
     </div>
