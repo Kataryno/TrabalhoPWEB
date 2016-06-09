@@ -102,3 +102,17 @@ input[type="select"] {
   width: 200px;
   height: 225px;
 }
+
+#framelogin{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin:5px;
+  background-color: lightgrey;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  padding: 20px; 
+  width: 650px;
+  height: 475px;
+}
