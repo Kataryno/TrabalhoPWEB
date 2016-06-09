@@ -87,3 +87,18 @@ input[type="select"] {
     /*position:absolute;
     bottom:0;*/
 }
+
+#frames{
+  font-family:'Bodoni MT';
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin:5px;
+  background-color: lightgrey;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  padding: 20px; 
+  width: 200px;
+  height: 225px;
+}

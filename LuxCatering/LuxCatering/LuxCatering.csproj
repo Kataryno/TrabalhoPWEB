@@ -188,8 +188,6 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="FornecedoresFormR.aspx" />
     <Content Include="Fornecedores\FornecedoresForm.aspx" />
-    <Content Include="LoginR.aspx" />
-    <Content Include="Registo.aspx" />
     <Content Include="Admin\Manager.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -230,7 +228,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
-    <Content Include="Login.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -400,20 +397,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="LoginR.aspx.cs">
-      <DependentUpon>LoginR.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LoginR.aspx.designer.cs">
-      <DependentUpon>LoginR.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Registo.aspx.cs">
-      <DependentUpon>Registo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Registo.aspx.designer.cs">
-      <DependentUpon>Registo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Manager.aspx.cs">
       <DependentUpon>Manager.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -438,13 +421,6 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
