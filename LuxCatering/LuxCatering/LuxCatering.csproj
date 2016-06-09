@@ -187,6 +187,7 @@
     <Content Include="Account\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="FornecedoresFormR.aspx" />
+    <Content Include="Fornecedores\FornecedoresFormPedidos.aspx" />
     <Content Include="Fornecedores\FornecedoresForm.aspx" />
     <Content Include="LoginR.aspx" />
     <Content Include="Registo.aspx" />
@@ -389,6 +390,13 @@
     </Compile>
     <Compile Include="FornecedoresFormR.aspx.designer.cs">
       <DependentUpon>FornecedoresFormR.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Fornecedores\FornecedoresFormPedidos.aspx.cs">
+      <DependentUpon>FornecedoresFormPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Fornecedores\FornecedoresFormPedidos.aspx.designer.cs">
+      <DependentUpon>FornecedoresFormPedidos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Fornecedores\FornecedoresForm.aspx.cs">
       <DependentUpon>FornecedoresForm.aspx</DependentUpon>
