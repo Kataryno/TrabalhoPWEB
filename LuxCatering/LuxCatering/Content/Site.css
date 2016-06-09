@@ -84,6 +84,6 @@ input[type="select"] {
     margin-left: auto;
     margin-right: auto;
     font-weight: bold;
-    position:absolute;
-   bottom:0;
+    /*position:absolute;
+    bottom:0;*/
 }
