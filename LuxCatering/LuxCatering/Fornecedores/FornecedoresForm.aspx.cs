@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.Security;
+using System.Data;
+using System.Web.Configuration;
+
 
 namespace LuxCatering
 {
@@ -30,7 +33,7 @@ namespace LuxCatering
             AllStates[1] = !(_refreshState);
             return AllStates;
         }
-
+  
         protected void btn_Click(object sender, EventArgs e)
         {
             if (!_isRefresh)
@@ -38,14 +41,117 @@ namespace LuxCatering
         }
         protected void Page_Load(object sender, EventArgs e)
           {
+            if (!Page.IsPostBack)
+            
+                BindDataToGridView();
 
-          }
+            
+        }
+  
+        protected void Prod_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
+        {
+            ltError.Text = string.Empty;
+            Prod.EditIndex = e.NewEditIndex;
+            BindDataToGridView();
 
+        }
+        protected void Prod_RowCancelingEdit(object sender, System.Web.UI.WebControls.GridViewCancelEditEventArgs e)
+        {
+            Prod.EditIndex = -1;
+            BindDataToGridView();
+
+        }
+        protected void Prod_RowUpdating(object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
+        {
+            ltError.Text = string.Empty;
+            GridViewRow ProdRow = (GridViewRow)Prod.Rows[e.RowIndex];
+            HiddenField IDProd = (HiddenField)ProdRow.FindControl("hdProd");
+        
+            TextBox TxtNome = (TextBox)ProdRow.Cells[1].Controls[0];
+            TextBox TxtDescricao = (TextBox)ProdRow.Cells[2].Controls[0];
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
+
+            conn.Open();
+           // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
+           // "alert('" + TxtDescricao.Text +TxtNome.Text + IDProd.Value+"');", true);
+        
+
+            string sql = string.Format("UPDATE PRODUTO set NOME = '" + TxtNome.Text + "', DESCRICAO = '" + TxtDescricao.Text + "' WHERE ID_PRODUTO='" + IDProd.Value + "'");
+            SqlCommand command = new SqlCommand(sql, conn);
+            command.ExecuteNonQuery();
+           
+            Prod.EditIndex = -1;
+            BindDataToGridView();
+            conn.Close();
+
+        }
+      
+        protected void Prod_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+        }
+        public void BindDataToGridView()
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
+
+            conn.Open();
+            string binddata = "Select  ID_PRODUTO,ID_CATEGORIA,NOME,DESCRICAO from PRODUTO order by ID_PRODUTO";
+            SqlCommand com = new SqlCommand(binddata, conn);
+            SqlDataAdapter dataadapter = new SqlDataAdapter(com);
+            DataSet dataset = new DataSet();
+            dataadapter.Fill(dataset);
+            if (dataset.Tables[0].Rows.Count > 0)
+            {
+                Prod.DataSource = dataset;
+                Prod.DataBind();
+            }
+
+
+
+        }
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
+        protected void btnAddRow_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
 
+            conn.Open();
+            string lastrow = "SELECT TOP 1 ID_PRODUTO FROM PRODUTO ORDER BY ID_PRODUTO DESC";
+            SqlCommand com1 = new SqlCommand(lastrow, conn);
+
+            var last = (Int32)com1.ExecuteScalar()+1;
+
+            string Nome = ((TextBox)form1.FindControl("nomeprod")).Text;
+            string Descricao = ((TextBox)form1.FindControl("descricaoprod")).Text;
+           // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
+            //"alert('" + last +Nome + Descricao+"');", true);
+            conn.Close();
+            conn.Open();
+
+            string addrow = "insert into  PRODUTO (ID_PRODUTO,Nome,Descricao) values('" + last + "','" + Nome + "','" + Descricao + "')";
+            SqlCommand com = new SqlCommand(addrow, conn);
+           com.ExecuteNonQuery();
+            BindDataToGridView();
+            conn.Close();
+        }
         protected void FormView1_ItemDeleted(object sender, FormViewDeletedEventArgs e)
         {
 

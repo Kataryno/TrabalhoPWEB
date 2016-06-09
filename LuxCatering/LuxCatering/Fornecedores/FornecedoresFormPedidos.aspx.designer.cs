@@ -10,16 +10,16 @@
 namespace LuxCatering {
     
     
-    public partial class FornecedoresForm {
+    public partial class FornecedoresFormPedidos {
         
         /// <summary>
-        /// form1 control.
+        /// form_1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl form1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl form_1;
         
         /// <summary>
         /// Label1 control.
@@ -40,48 +40,48 @@ namespace LuxCatering {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// nomeprod control.
+        /// GridView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomeprod;
+        protected global::System.Web.UI.WebControls.GridView GridView2;
         
         /// <summary>
-        /// descricaoprod control.
+        /// SqlDataSource2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox descricaoprod;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
-        /// btnAddRow control.
+        /// GridView3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddRow;
+        protected global::System.Web.UI.WebControls.GridView GridView3;
         
         /// <summary>
-        /// ltError control.
+        /// SqlDataSource4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltError;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource4;
         
         /// <summary>
-        /// Prod control.
+        /// SqlDataSource5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Prod;
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource5;
     }
 }
