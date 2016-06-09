@@ -9,7 +9,7 @@ using System.Web.Security;
 
 namespace LuxCatering
 {
-    public partial class FornecedoresForm : System.Web.UI.Page
+    public partial class ClientesForm : System.Web.UI.Page
     {
         private bool _refreshState;
         private bool _isRefresh;

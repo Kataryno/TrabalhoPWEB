@@ -10,7 +10,7 @@
 namespace LuxCatering {
     
     
-    public partial class FornecedoresForm {
+    public partial class ClientesForm {
         
         /// <summary>
         /// form1 control.
@@ -47,15 +47,6 @@ namespace LuxCatering {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridView1_P;
-        
-        /// <summary>
-        /// DetailsView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
         
         /// <summary>
         /// SqlDataSource1 control.
