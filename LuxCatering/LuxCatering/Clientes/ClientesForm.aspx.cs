@@ -102,6 +102,48 @@ namespace LuxCatering
         protected void SqlDataSource3_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
         {
 
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        void CustomersGridView_SelectedIndexChanged(Object sender, EventArgs e)
+        {
+            // Get the currently selected row using the SelectedRow property.
+            GridViewRow row = CustomersGridView.SelectedRow;
+
+            // Display the first name from the selected row.
+            // In this example, the third column (index 2) contains
+            // the first name.
+            MessageLabel.Text = "You selected " + row.Cells[2].Text + ".";
+        }
+
+        void CustomersGridView_SelectedIndexChanging(Object sender, GridViewSelectEventArgs e)
+        {
+            // Get the currently selected row. Because the SelectedIndexChanging event
+            // occurs before the select operation in the GridView control, the
+            // SelectedRow property cannot be used. Instead, use the Rows collection
+            // and the NewSelectedIndex property of the e argument passed to this 
+            // event handler.
+            GridViewRow row = CustomersGridView.Rows[e.NewSelectedIndex];
+
+            // You can cancel the select operation by using the Cancel
+            // property. For this example, if the user selects a customer with 
+            // the ID "ANATR", the select operation is canceled and an error message
+            // is displayed.
+            if (row.Cells[1].Text == "ANATR")
+            {
+                e.Cancel = true;
+                MessageLabel.Text = "You cannot select " + row.Cells[2].Text + ".";
+            }
         }
     }
 }

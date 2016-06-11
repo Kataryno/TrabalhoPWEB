@@ -205,9 +205,6 @@ namespace LuxCatering
           }*/
         }
 
-        protected void SqlDataSource3_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
-        {
-
-        }
+       
     }
 }
