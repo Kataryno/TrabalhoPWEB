@@ -7,12 +7,11 @@
     
     <div id="framelogin">
     <h1><%: Title %></h1>
-
     <div class="row">
         <div class="col-md-8">
             <section id="loginForm">
                 <div class="form-horizontal">
-                    <h2>Entre com a sua conta</h2>
+                    <h4>Entre com a sua conta</h4>
                     <hr />
                     <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
