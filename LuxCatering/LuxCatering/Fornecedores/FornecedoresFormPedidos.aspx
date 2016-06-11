@@ -94,13 +94,11 @@
                             <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
                         </UpdateParameters>
                         </asp:SqlDataSource>
-                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" DataKeyNames="ID_PEDIDO,ID_LINHA_PEDIDO">
+                        <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" CellPadding="4" DataSourceID="SqlDataSource4" ForeColor="#333333" GridLines="None" AutoGenerateColumns="False" Width="477px">
                             <AlternatingRowStyle BackColor="White" />
                             <Columns>
-                                <asp:BoundField DataField="ID_PEDIDO" HeaderText="ID_PEDIDO" ReadOnly="True" SortExpression="ID_PEDIDO" />
-                                <asp:BoundField DataField="ID_LINHA_PEDIDO" HeaderText="ID_LINHA_PEDIDO" ReadOnly="True" SortExpression="ID_LINHA_PEDIDO" />
-                                <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" SortExpression="ID_PRODUTO" />
-                                <asp:BoundField DataField="QTD_PRODUTO" HeaderText="QTD_PRODUTO" SortExpression="QTD_PRODUTO" />
+                                <asp:BoundField DataField="ID_PEDIDO" HeaderText="ID_PEDIDO" SortExpression="ID_PEDIDO" />
+                                <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
                             </Columns>
                             <EditRowStyle BackColor="#2461BF" />
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -113,7 +111,12 @@
                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
-                        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" DeleteCommand="DELETE FROM [LINHA_PEDIDO] WHERE [ID_PEDIDO] = @ID_PEDIDO AND [ID_LINHA_PEDIDO] = @ID_LINHA_PEDIDO" InsertCommand="INSERT INTO [LINHA_PEDIDO] ([ID_PEDIDO], [ID_LINHA_PEDIDO], [ID_PRODUTO], [QTD_PRODUTO]) VALUES (@ID_PEDIDO, @ID_LINHA_PEDIDO, @ID_PRODUTO, @QTD_PRODUTO)" SelectCommand="SELECT * FROM [LINHA_PEDIDO] WHERE ([ID_PEDIDO] = @ID_PEDIDO)" UpdateCommand="UPDATE [LINHA_PEDIDO] SET [ID_PRODUTO] = @ID_PRODUTO, [QTD_PRODUTO] = @QTD_PRODUTO WHERE [ID_PEDIDO] = @ID_PEDIDO AND [ID_LINHA_PEDIDO] = @ID_LINHA_PEDIDO">
+                        <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" DeleteCommand="DELETE FROM [LINHA_PEDIDO] WHERE [ID_PEDIDO] = @ID_PEDIDO AND [ID_LINHA_PEDIDO] = @ID_LINHA_PEDIDO" InsertCommand="INSERT INTO [LINHA_PEDIDO] ([ID_PEDIDO], [ID_LINHA_PEDIDO], [ID_PRODUTO], [QTD_PRODUTO]) VALUES (@ID_PEDIDO, @ID_LINHA_PEDIDO, @ID_PRODUTO, @QTD_PRODUTO)" SelectCommand="SELECT LINHA_PEDIDO.ID_PEDIDO, PRODUTO.NOME
+FROM LINHA_PEDIDO 
+INNER JOIN PRODUTO
+ON LINHA_PEDIDO.ID_PRODUTO=PRODUTO.ID_PRODUTO
+WHERE ([ID_PEDIDO] = @ID_PEDIDO);
+" UpdateCommand="UPDATE [LINHA_PEDIDO] SET [ID_PRODUTO] = @ID_PRODUTO, [QTD_PRODUTO] = @QTD_PRODUTO WHERE [ID_PEDIDO] = @ID_PEDIDO AND [ID_LINHA_PEDIDO] = @ID_LINHA_PEDIDO">
                             <DeleteParameters>
                                 <asp:Parameter Name="ID_PEDIDO" Type="Int32" />
                                 <asp:Parameter Name="ID_LINHA_PEDIDO" Type="Int32" />
@@ -125,7 +128,7 @@
                                 <asp:Parameter Name="QTD_PRODUTO" Type="Int32" />
                             </InsertParameters>
                             <SelectParameters>
-                                <asp:ControlParameter ControlID="GridView2" Name="ID_PEDIDO" PropertyName="SelectedValue" Type="Int32" />
+                                <asp:ControlParameter ControlID="GridView2" Name="ID_PEDIDO" PropertyName="SelectedValue" />
                             </SelectParameters>
                             <UpdateParameters>
                                 <asp:Parameter Name="ID_PRODUTO" Type="Int32" />
@@ -159,7 +162,7 @@
                             </UpdateParameters>
                         </asp:SqlDataSource>
                          <h4>Enviar Orçamento:</h4>
-                        <asp:detailsview runat="server" height="50px" width="549px" DataSourceID="SqlDataSource5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateRows="False" DataKeyNames="ID_ORCAMENTO">
+                        <asp:detailsview runat="server" height="50px" width="570px" DataSourceID="SqlDataSource5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateRows="False" DataKeyNames="ID_ORCAMENTO" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
                             <EditRowStyle BackColor="#999999" />
