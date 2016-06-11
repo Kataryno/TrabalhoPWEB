@@ -14,9 +14,10 @@
         }
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-    <h2><%: Title %>.</h2>
+    
+    <h1>Contactos</h1>
     <div id="googleMap" style="width:500px;height:380px;float:right; margin-right:30%"></div> 
-    <h3>  </h3>
+    <div id="frames"
     <address>
 
         Biblioteca DEIS, Gabinete 5<br />
@@ -29,4 +30,5 @@
         <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
         <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
     </address>
+   </div>
 </asp:Content>

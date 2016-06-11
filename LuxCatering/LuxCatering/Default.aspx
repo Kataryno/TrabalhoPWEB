@@ -12,7 +12,7 @@
             
                 <h2 style="text-align:center">Vai dar uma festa?</h2>
                 <p style="text-align: justify">Preocupe-se apenas com a diversão! Através do Lux Catering poderá encontrar o melhor parceiro para o seu evento. Mais de 20 fornecedores registados e certificados na área da restauração.Registe-se ou inicie a sessão para começar a pedir orçamentos para aquele momento especial!  </p> <br />
-            <a class="btn btn-info btn-block" href="Login.aspx" >Registar &raquo;</a>
+            <a class="btn btn-info btn-block" href="Account/Register.aspx" >Registar &raquo;</a>
             
         </div>
         <div class="col-md-4">
