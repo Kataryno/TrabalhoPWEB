@@ -196,7 +196,6 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Admin\GestaoRoles.aspx" />
     <Content Include="Clientes\ClientesForm.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -216,9 +215,9 @@
     <Content Include="Fornecedores\FornecedoresForm.aspx" />
     <Content Include="Admin\Manager.aspx" />
     <Content Include="Roles\CreateUserWizardWithRoles.aspx" />
-    <Content Include="Roles\ManageRoles.aspx" />
+    <Content Include="Admin\ManageRoles.aspx" />
     <Content Include="Roles\RoleBasedAuthorization.aspx" />
-    <Content Include="Roles\UsersAndRoles.aspx" />
+    <Content Include="Admin\UsersAndRoles.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -390,13 +389,6 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\GestaoRoles.aspx.cs">
-      <DependentUpon>GestaoRoles.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\GestaoRoles.aspx.designer.cs">
-      <DependentUpon>GestaoRoles.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -478,11 +470,11 @@
     <Compile Include="Roles\CreateUserWizardWithRoles.aspx.designer.cs">
       <DependentUpon>CreateUserWizardWithRoles.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Roles\ManageRoles.aspx.cs">
+    <Compile Include="Admin\ManageRoles.aspx.cs">
       <DependentUpon>ManageRoles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Roles\ManageRoles.aspx.designer.cs">
+    <Compile Include="Admin\ManageRoles.aspx.designer.cs">
       <DependentUpon>ManageRoles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Roles\RoleBasedAuthorization.aspx.cs">
@@ -492,11 +484,11 @@
     <Compile Include="Roles\RoleBasedAuthorization.aspx.designer.cs">
       <DependentUpon>RoleBasedAuthorization.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Roles\UsersAndRoles.aspx.cs">
+    <Compile Include="Admin\UsersAndRoles.aspx.cs">
       <DependentUpon>UsersAndRoles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Roles\UsersAndRoles.aspx.designer.cs">
+    <Compile Include="Admin\UsersAndRoles.aspx.designer.cs">
       <DependentUpon>UsersAndRoles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
