@@ -18,7 +18,7 @@
 
 
    <div style="height:90%; width:90%; background-color:antiquewhite">
-    <div >
+       <div id="form1" runat="server">
     
       
     
@@ -31,14 +31,14 @@
                 </td>
                
                 <td ><h5>Data do evento</h5>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
+                    <asp:TextBox ID="dataevento" type="date" runat="server"></asp:TextBox><br />
                     <h5>Numero de Pessoas</h5>
-                    <asp:TextBox ID="TextBox2" runat="server" Width="43px"></asp:TextBox><br />
+                    <asp:TextBox ID="pessoasevento" runat="server" Width="43px"></asp:TextBox><br />
                     <h5>Nome</h5>
-                    <asp:TextBox ID="TextBox3" runat="server" Width="268px"></asp:TextBox><br /><br />
+                    <asp:TextBox ID="nomeevento" runat="server" Width="268px"></asp:TextBox><br /><br />
                     <h5>Local</h5>
-                    <asp:TextBox ID="TextBox4" runat="server" Width="268px"></asp:TextBox><br /><br />
-                    <asp:Button ID="Button2" runat="server" Text="Criar Pedido" Width="156px" />
+                    <asp:TextBox ID="localevento" runat="server" Width="268px"></asp:TextBox><br /><br />
+                    <asp:Button ID="Button2" runat="server" Text="Criar Pedido" Width="156px" OnClick="Button2_Click" />
                     <br />
                     
                      <div id="produto" style="float:left;padding:5px;">

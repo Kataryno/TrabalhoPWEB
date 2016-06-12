@@ -145,5 +145,42 @@ namespace LuxCatering
                 MessageLabel.Text = "You cannot select " + row.Cells[2].Text + ".";
             }
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
+
+            conn.Open();
+            string lastrow = "SELECT TOP 1 ID_PEDIDO FROM PEDIDO ORDER BY ID_PEDIDO DESC";
+            SqlCommand com1 = new SqlCommand(lastrow, conn);
+
+            var idpedido = (Int32)com1.ExecuteScalar() + 1;
+
+            string Nome = ((TextBox)form1.FindControl("nomeevento")).Text;
+            string data = ((TextBox)form1.FindControl("dataevento")).Text;
+            var pessoas = ((TextBox)form1.FindControl("pessoasevento")).Text;
+            string datacriacao = DateTime.Now.ToString("dd/mm/yyyy");
+            string local = ((TextBox)form1.FindControl("localsevento")).Text;
+
+            conn.Close();
+            conn.Open();
+            string idlocal = "SELECT ID_LOCAL FROM LOCAL WHERE NOME = '"+local+"'";
+            // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
+            //"alert('" + last +Nome + Descricao+"');", true);
+            conn.Close();
+            conn.Open();
+
+            string addrow = "insert into  PEDIDO (ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO) values('" + last + "','" + Nome + "','" + Descricao + "')";
+            SqlCommand com = new SqlCommand(addrow, conn);
+            com.ExecuteNonQuery();
+      
+            conn.Close();
+
+        }
     }
 }
