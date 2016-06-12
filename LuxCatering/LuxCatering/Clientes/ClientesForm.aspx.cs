@@ -222,7 +222,7 @@ namespace LuxCatering
             conn.Close();
             BindDataToGridView3();
 
-            ID_pedido.Text = idpedido;
+            //ID_pedido.Text = idpedido;
 
         }
 
