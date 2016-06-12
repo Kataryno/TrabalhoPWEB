@@ -18,7 +18,7 @@
 
 
    <div style="height:90%; width:90%; background-color:antiquewhite">
-    <div id="form1" runat="server">
+    <div >
     
       
     
@@ -31,12 +31,13 @@
                 </td>
                
                 <td >
+                    <asp:Button ID="Button2" runat="server" Text="Criar Pedido" Width="156px" />
                     <br />
                     
                      <div id="produto" style="float:left;padding:5px;">
                     <h4>Tabela de Produtos:</h4>
                     
-                             <form id="form2" runat="server">
+                             
 
      <h3>GridView Select Example</h3>
 
@@ -62,30 +63,27 @@
 
      </asp:gridview>
 
+                   
+
       <br/>
 
       <asp:label id="MessageLabel"
-        forecolor="Red"
-        runat="server"/>
+        forecolor="Black"
+        runat="server"/><br />
 
       <!-- This example uses Microsoft SQL Server and connects  -->
       <!-- to the sample database. Use an ASP.NET     -->
       <!-- expression to retrieve the connection string value   -->
       <!-- from the Web.config file.                            -->
-
+                     <p>Quantidade</p>    <asp:textbox runat="server" Width="20px"></asp:textbox><p></p>
+ <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar" />
     </form>
 
                     </div>
                        
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PRODUTO]"></asp:SqlDataSource>
                        
-                    &nbsp;<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                    <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-                    <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar produto" />
-&nbsp;<asp:Button ID="Button2" runat="server" Text="Criar Pedido" />
-                       
-                </td>
+                    &nbsp;&nbsp;</td>
                
             </tr>
             <tr>

@@ -14,7 +14,7 @@ namespace LuxCatering
         private bool _refreshState;
         private bool _isRefresh;
 
-        protected override void LoadViewState(object savedState)
+       /* protected override void LoadViewState(object savedState)
         {
             object[] AllStates = (object[])savedState;
             base.LoadViewState(AllStates[0]);
@@ -35,7 +35,7 @@ namespace LuxCatering
         {
             if (!_isRefresh)
                 Response.Write(DateTime.Now.Millisecond.ToString());
-        }
+        }*/
         protected void Page_Load(object sender, EventArgs e)
           {
 
@@ -123,7 +123,7 @@ namespace LuxCatering
             // Display the first name from the selected row.
             // In this example, the third column (index 2) contains
             // the first name.
-            MessageLabel.Text = "You selected " + row.Cells[2].Text + ".";
+            MessageLabel.Text = "Quer adicionar " + row.Cells[3].Text + " ao pedido ?";
         }
 
        protected void GridView2_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
