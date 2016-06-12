@@ -39,6 +39,26 @@
                     <h5>Local</h5>
                     <asp:TextBox ID="localevento" runat="server" Width="268px"></asp:TextBox><br /><br />
                     <asp:Button ID="Button2" runat="server" Text="Criar Pedido" Width="156px" OnClick="Button2_Click" />
+                      <asp:GridView  ID="Pedido"  AllowSorting="True" CssClass="table table-striped color-table" runat="server" AutoGenerateColumns="false" >
+                             <Columns>
+                                 <asp:TemplateField>
+                                     <ItemTemplate>
+                                         <asp:HiddenField ID="hdProd" runat="server" Value='<%#DataBinder.Eval(Container.DataItem,"ID_PEDIDO")  %>' />
+                                     </ItemTemplate>
+                                     
+                                 </asp:TemplateField>
+                             <asp:BoundField DataField="ID_PEDIDO" HeaderText="PEDIDO" />
+                            <asp:BoundField DataField="ID_CLIENTE" HeaderText="CLIENTE" />
+                             <asp:BoundField DataField="ID_LOCAL" HeaderText="LOCAL" />
+                            <asp:BoundField DataField="NOME" HeaderText="NOME" />
+                            <asp:BoundField DataField="DATA_CRIACAO" HeaderText="DATA CRIACAO" />
+                            <asp:BoundField DataField="NUM_PESSOAS" HeaderText="N.PESSOAS" />
+                             <asp:BoundField DataField="DATA_EVENTO" HeaderText="DATA EVENTO" />
+                        
+                             </Columns>
+                         </asp:GridView>
+        
+                    <asp:label ID="ID_pedido" runat="server" ></asp:label>
                     <br />
                     
                      <div id="produto" style="float:left;padding:5px;">
@@ -82,13 +102,14 @@
       <!-- to the sample database. Use an ASP.NET     -->
       <!-- expression to retrieve the connection string value   -->
       <!-- from the Web.config file.                            -->
+                       
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PRODUTO]"></asp:SqlDataSource>
+                       
                      <p>Quantidade</p>    <asp:textbox runat="server" Width="20px"></asp:textbox><p></p>
  <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar" />
     </form>
 
                     </div>
-                       
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PRODUTO]"></asp:SqlDataSource>
                        
                     &nbsp;&nbsp;</td>
                

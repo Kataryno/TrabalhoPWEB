@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.Security;
+using System.Security.Principal;
+using System.Data;
+using System.Web.Configuration;
 
 namespace LuxCatering
 {
@@ -145,6 +148,30 @@ namespace LuxCatering
                 MessageLabel.Text = "You cannot select " + row.Cells[2].Text + ".";
             }
         }
+        public void BindDataToGridView3()
+        {
+            SqlConnection conn1 = new SqlConnection();
+            conn1.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
+
+            conn1.Open();
+            string binddata = "Select  ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO from PEDIDO order by ID_PEDIDO";
+            SqlCommand com = new SqlCommand(binddata, conn1);
+            SqlDataAdapter dataadapter = new SqlDataAdapter(com);
+            DataSet dataset = new DataSet();
+            dataadapter.Fill(dataset);
+            if (dataset.Tables[0].Rows.Count > 0)
+            {
+                Pedido.DataSource = dataset;
+                Pedido.DataBind();
+            }
+            conn1.Close();
+
+
+        }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -160,26 +187,47 @@ namespace LuxCatering
             SqlCommand com1 = new SqlCommand(lastrow, conn);
 
             var idpedido = (Int32)com1.ExecuteScalar() + 1;
+            
 
             string Nome = ((TextBox)form1.FindControl("nomeevento")).Text;
             string data = ((TextBox)form1.FindControl("dataevento")).Text;
             var pessoas = ((TextBox)form1.FindControl("pessoasevento")).Text;
             string datacriacao = DateTime.Now.ToString("dd/mm/yyyy");
-            string local = ((TextBox)form1.FindControl("localsevento")).Text;
-
+            string local = ((TextBox)form1.FindControl("localevento")).Text;
+            //string email = HttpContext.Current.User.Identity.Name;
             conn.Close();
+
             conn.Open();
-            string idlocal = "SELECT ID_LOCAL FROM LOCAL WHERE NOME = '"+local+"'";
+            string id_local = "SELECT ID_LOCAL FROM LOCAL WHERE NOME = '"+local+"'";
             // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
             //"alert('" + last +Nome + Descricao+"');", true);
-            conn.Close();
-            conn.Open();
+            SqlCommand com2 = new SqlCommand(id_local, conn);
 
-            string addrow = "insert into  PEDIDO (ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO) values('" + last + "','" + Nome + "','" + Descricao + "')";
+            var idlocal = (Int32)com2.ExecuteScalar();
+            conn.Close();
+
+           // conn.Open();
+           // string id_cliente = "SELECT ID_CLIENTE FROM CLIENTE WHERE EMAIL = '" + email + "'";
+           // SqlCommand com3 = new SqlCommand(id_cliente, conn);
+
+            var idcliente = 1;
+            //conn.Close();
+
+            conn.Open();
+            string addrow = "insert into  PEDIDO (ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO) values('" + idpedido + "','" + idcliente + "','" + idlocal + "','" + Nome + "','" + datacriacao + "','" + pessoas + "','" + data + "')";
             SqlCommand com = new SqlCommand(addrow, conn);
             com.ExecuteNonQuery();
-      
+
+           
             conn.Close();
+            BindDataToGridView3();
+
+            ID_pedido.Text = idpedido;
+
+        }
+
+        protected void GridView3_SelectedIndexChanged1(object sender, EventArgs e)
+        {
 
         }
     }

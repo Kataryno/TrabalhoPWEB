@@ -24,11 +24,11 @@ namespace LuxCatering.Admin
         {
             //lbCategoria.Text = "";
             //foreach (string cat in Categorias)
-                if (!Roles.RoleExists(tbNomeNovaRole.Text))
+             /*   if (!Roles.RoleExists(tbNomeNovaRole.Text))
                 {
                     Roles.CreateRole(tbNomeNovaRole.Text);
                     //lbCategoria.Text += "Categoria criada: " + cat + "<br>";
-                }
+                }*/
         }
     }
 }
