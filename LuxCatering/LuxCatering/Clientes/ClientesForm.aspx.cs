@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.Security;
+using System.Security.Principal;
 
 namespace LuxCatering
 {
@@ -160,26 +161,47 @@ namespace LuxCatering
             SqlCommand com1 = new SqlCommand(lastrow, conn);
 
             var idpedido = (Int32)com1.ExecuteScalar() + 1;
+            
 
             string Nome = ((TextBox)form1.FindControl("nomeevento")).Text;
             string data = ((TextBox)form1.FindControl("dataevento")).Text;
             var pessoas = ((TextBox)form1.FindControl("pessoasevento")).Text;
             string datacriacao = DateTime.Now.ToString("dd/mm/yyyy");
-            string local = ((TextBox)form1.FindControl("localsevento")).Text;
-
+            string local = ((TextBox)form1.FindControl("localevento")).Text;
+            //string email = HttpContext.Current.User.Identity.Name;
             conn.Close();
+
             conn.Open();
-            string idlocal = "SELECT ID_LOCAL FROM LOCAL WHERE NOME = '"+local+"'";
+            string id_local = "SELECT ID_LOCAL FROM LOCAL WHERE NOME = '"+local+"'";
             // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
             //"alert('" + last +Nome + Descricao+"');", true);
-            conn.Close();
-            conn.Open();
+            SqlCommand com2 = new SqlCommand(id_local, conn);
 
-            string addrow = "insert into  PEDIDO (ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO) values('" + last + "','" + Nome + "','" + Descricao + "')";
+            var idlocal = (Int32)com2.ExecuteScalar();
+            conn.Close();
+
+           // conn.Open();
+           // string id_cliente = "SELECT ID_CLIENTE FROM CLIENTE WHERE EMAIL = '" + email + "'";
+           // SqlCommand com3 = new SqlCommand(id_cliente, conn);
+
+            var idcliente = 1;
+            //conn.Close();
+
+            conn.Open();
+            string addrow = "insert into  PEDIDO (ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO) values('" + idpedido + "','" + idcliente + "','" + idlocal + "','" + Nome + "','" + datacriacao + "','" + pessoas + "','" + data + "')";
             SqlCommand com = new SqlCommand(addrow, conn);
             com.ExecuteNonQuery();
-      
+            
+
+
             conn.Close();
+
+           ID_pedido.Text = idpedido.ToString();
+
+        }
+
+        protected void GridView3_SelectedIndexChanged1(object sender, EventArgs e)
+        {
 
         }
     }
