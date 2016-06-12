@@ -36,6 +36,10 @@
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The confirm password field is required." />
                 <asp:CompareValidator runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
                     CssClass="text-danger" Display="Dynamic" ErrorMessage="The password and confirmation password do not match." />
+                <asp:radiobuttonlist ID="rblPerfil" runat="server" RepeatDirection="Horizontal" RepeatLayout="Table" TextAlign="Right">
+                  <asp:ListItem Text="Cliente" Selected="True" />
+                  <asp:ListItem Text="Fornecedor" />
+                </asp:radiobuttonlist>
             </div>
         </div>
         <div class="form-group">
