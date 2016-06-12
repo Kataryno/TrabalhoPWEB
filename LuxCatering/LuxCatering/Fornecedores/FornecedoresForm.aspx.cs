@@ -116,7 +116,7 @@ namespace LuxCatering
                 Prod.DataSource = dataset;
                 Prod.DataBind();
             }
-
+            conn.Close();
 
 
         }

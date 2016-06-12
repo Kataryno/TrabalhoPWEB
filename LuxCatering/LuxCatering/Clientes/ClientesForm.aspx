@@ -40,28 +40,20 @@
 
      <h3>GridView Select Example</h3>
 
-     <asp:gridview id="CustomersGridView" 
-       datasourceid="CustomersSource" 
+     <asp:gridview id="GridView2" 
+       datasourceid="SqlDataSource1" 
        autogeneratecolumns="False"
        autogenerateselectbutton="True"
        selectedindex="1"
-       onselectedindexchanged="CustomersGridView_SelectedIndexChanged"
-       onselectedindexchanging="CustomersGridView_SelectedIndexChanging"   
-       runat="server" DataKeyNames="ID_PRODUTO">
+       onselectedindexchanged="GridView2_SelectedIndexChanged"
+       onselectedindexchanging="GridView2_SelectedIndexChanging"   
+       runat="server" DataKeyNames="ID_PRODUTO" AllowPaging="True">
 
          <Columns>
-             <asp:BoundField DataField="ID_PRODUTO" 
-                 HeaderText="ID_PRODUTO" ReadOnly="True" 
-                 SortExpression="ID_PRODUTO" />
-             <asp:BoundField DataField="ID_CATEGORIA" 
-                 HeaderText="ID_CATEGORIA" 
-                 SortExpression="ID_CATEGORIA" />
-             <asp:BoundField DataField="NOME" 
-                 HeaderText="NOME" 
-                 SortExpression="NOME" />
-             <asp:BoundField DataField="DESCRICAO" 
-                 HeaderText="DESCRICAO" 
-                 SortExpression="DESCRICAO" />
+             <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" ReadOnly="True" SortExpression="ID_PRODUTO" />
+             <asp:BoundField DataField="ID_CATEGORIA" HeaderText="ID_CATEGORIA" SortExpression="ID_CATEGORIA" />
+             <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
+             <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
          </Columns>
 
        <selectedrowstyle backcolor="LightCyan"
@@ -80,10 +72,6 @@
       <!-- to the sample database. Use an ASP.NET     -->
       <!-- expression to retrieve the connection string value   -->
       <!-- from the Web.config file.                            -->
-      <asp:sqldatasource id="CustomersSource"
-        selectcommand="SELECT * FROM [PRODUTO]"
-        connectionstring="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" 
-        runat="server"/>
 
     </form>
 
@@ -95,10 +83,7 @@
                     <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                     <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                     <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar produto" />
-&nbsp;<asp:GridView ID="GridView2" runat="server">
-                    </asp:GridView>
-                       
-                    <asp:Button ID="Button2" runat="server" Text="Criar Pedido" />
+&nbsp;<asp:Button ID="Button2" runat="server" Text="Criar Pedido" />
                        
                 </td>
                

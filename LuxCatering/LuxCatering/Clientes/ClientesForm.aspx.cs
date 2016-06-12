@@ -115,10 +115,10 @@ namespace LuxCatering
 
         }
 
-        void CustomersGridView_SelectedIndexChanged(Object sender, EventArgs e)
+       protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the currently selected row using the SelectedRow property.
-            GridViewRow row = CustomersGridView.SelectedRow;
+            GridViewRow row = GridView2.SelectedRow;
 
             // Display the first name from the selected row.
             // In this example, the third column (index 2) contains
@@ -126,14 +126,14 @@ namespace LuxCatering
             MessageLabel.Text = "You selected " + row.Cells[2].Text + ".";
         }
 
-        void CustomersGridView_SelectedIndexChanging(Object sender, GridViewSelectEventArgs e)
+       protected void GridView2_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             // Get the currently selected row. Because the SelectedIndexChanging event
             // occurs before the select operation in the GridView control, the
             // SelectedRow property cannot be used. Instead, use the Rows collection
             // and the NewSelectedIndex property of the e argument passed to this 
             // event handler.
-            GridViewRow row = CustomersGridView.Rows[e.NewSelectedIndex];
+            GridViewRow row = GridView2.Rows[e.NewSelectedIndex];
 
             // You can cancel the select operation by using the Cancel
             // property. For this example, if the user selects a customer with 
