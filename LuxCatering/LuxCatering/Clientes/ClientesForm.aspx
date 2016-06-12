@@ -30,7 +30,14 @@
                   
                 </td>
                
-                <td >
+                <td ><h5>Data do evento</h5>
+                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
+                    <h5>Numero de Pessoas</h5>
+                    <asp:TextBox ID="TextBox2" runat="server" Width="43px"></asp:TextBox><br />
+                    <h5>Nome</h5>
+                    <asp:TextBox ID="TextBox3" runat="server" Width="268px"></asp:TextBox><br /><br />
+                    <h5>Local</h5>
+                    <asp:TextBox ID="TextBox4" runat="server" Width="268px"></asp:TextBox><br /><br />
                     <asp:Button ID="Button2" runat="server" Text="Criar Pedido" Width="156px" />
                     <br />
                     
