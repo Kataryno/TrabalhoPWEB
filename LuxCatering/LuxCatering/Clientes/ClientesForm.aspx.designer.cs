@@ -67,13 +67,13 @@ namespace LuxCatering {
         protected global::System.Web.UI.WebControls.Button Button2;
         
         /// <summary>
-        /// GridView3 control.
+        /// Pedido control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView3;
+        protected global::System.Web.UI.WebControls.GridView Pedido;
         
         /// <summary>
         /// ID_pedido control.
@@ -83,15 +83,6 @@ namespace LuxCatering {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label ID_pedido;
-        
-        /// <summary>
-        /// SqlDataSource2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
         
         /// <summary>
         /// GridView2 control.

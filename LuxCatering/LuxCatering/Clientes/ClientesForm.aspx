@@ -39,23 +39,26 @@
                     <h5>Local</h5>
                     <asp:TextBox ID="localevento" runat="server" Width="268px"></asp:TextBox><br /><br />
                     <asp:Button ID="Button2" runat="server" Text="Criar Pedido" Width="156px" OnClick="Button2_Click" />
-                    <asp:GridView ID="GridView3" runat="server" OnSelectedIndexChanged="GridView3_SelectedIndexChanged1" AutoGenerateColumns="False" DataKeyNames="ID_PEDIDO" DataSourceID="SqlDataSource2">
-                        <Columns>
-                            <asp:BoundField DataField="ID_PEDIDO" HeaderText="ID_PEDIDO" ReadOnly="True" SortExpression="ID_PEDIDO" />
-                            <asp:BoundField DataField="ID_CLIENTE" HeaderText="ID_CLIENTE" SortExpression="ID_CLIENTE" />
-                            <asp:BoundField DataField="ID_LOCAL" HeaderText="ID_LOCAL" SortExpression="ID_LOCAL" />
-                            <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
-                            <asp:BoundField DataField="DATA_CRIACAO" HeaderText="DATA_CRIACAO" SortExpression="DATA_CRIACAO" />
-                            <asp:BoundField DataField="NUM_PESSOAS" HeaderText="NUM_PESSOAS" SortExpression="NUM_PESSOAS" />
-                            <asp:BoundField DataField="DATA_EVENTO" HeaderText="DATA_EVENTO" SortExpression="DATA_EVENTO" />
-                        </Columns>
-                    </asp:GridView>
-                    <asp:Label ID="ID_pedido" runat="server" ></asp:Label>
-                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PEDIDO] WHERE ([ID_PEDIDO] = @ID_PEDIDO)">
-                        <SelectParameters>
-                            <asp:ControlParameter ControlID="ID_pedido" Name="ID_PEDIDO" PropertyName="Text" Type="Int32" />
-                        </SelectParameters>
-                    </asp:SqlDataSource>
+                      <asp:GridView  ID="Pedido"  AllowSorting="True" CssClass="table table-striped color-table" runat="server" AutoGenerateColumns="false" >
+                             <Columns>
+                                 <asp:TemplateField>
+                                     <ItemTemplate>
+                                         <asp:HiddenField ID="hdProd" runat="server" Value='<%#DataBinder.Eval(Container.DataItem,"ID_PEDIDO")  %>' />
+                                     </ItemTemplate>
+                                     
+                                 </asp:TemplateField>
+                             <asp:BoundField DataField="ID_PEDIDO" HeaderText="PEDIDO" />
+                            <asp:BoundField DataField="ID_CLIENTE" HeaderText="CLIENTE" />
+                             <asp:BoundField DataField="ID_LOCAL" HeaderText="LOCAL" />
+                            <asp:BoundField DataField="NOME" HeaderText="NOME" />
+                            <asp:BoundField DataField="DATA_CRIACAO" HeaderText="DATA CRIACAO" />
+                            <asp:BoundField DataField="NUM_PESSOAS" HeaderText="N.PESSOAS" />
+                             <asp:BoundField DataField="DATA_EVENTO" HeaderText="DATA EVENTO" />
+                        
+                             </Columns>
+                         </asp:GridView>
+        
+                    <asp:label ID="ID_pedido" runat="server" ></asp:label>
                     <br />
                     
                      <div id="produto" style="float:left;padding:5px;">
