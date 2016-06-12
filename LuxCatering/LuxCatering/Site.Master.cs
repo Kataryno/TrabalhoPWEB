@@ -18,6 +18,10 @@ namespace LuxCatering
 
         protected void Page_Init(object sender, EventArgs e)
         {
+            if (HttpContext.Current.User.IsInRole("Administrador"))
+            {
+                adminLink.Visible = true;
+            }
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
             Guid requestCookieGuidValue;
@@ -50,6 +54,10 @@ namespace LuxCatering
 
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
+            if (HttpContext.Current.User.IsInRole("Administrador"))
+            {
+                adminLink.Visible = true;
+            }
             if (!IsPostBack)
             {
                 // Set Anti-XSRF token
@@ -69,7 +77,10 @@ namespace LuxCatering
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (HttpContext.Current.User.IsInRole("Administrador"))
+            {
+                adminLink.Visible = true;
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

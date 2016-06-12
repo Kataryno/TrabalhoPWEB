@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using LuxCatering.Account;
 
 namespace LuxCatering
 {
@@ -16,6 +17,10 @@ namespace LuxCatering
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            // Cria roles para as aplicações
+            RoleActions roleActions = new RoleActions();
+            roleActions.CreateRoles();
+
         }
     }
 }

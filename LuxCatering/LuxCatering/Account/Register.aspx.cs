@@ -23,19 +23,6 @@ namespace LuxCatering.Account
 
             if (result.Succeeded)
             {
-                // Access the application context and create result variables.
-                Models.ApplicationDbContext context = new ApplicationDbContext();
-
-                if (rblPerfil.SelectedIndex == 0)
-                    RoleName = "Cliente";
-                else
-                    RoleName = "Fornecedor";
-
-                if (!manager.IsInRole(manager.FindByEmail(Email.Text).Id, RoleName))
-                {
-                    result = manager.AddToRole(manager.FindByEmail(Email.Text).Id, RoleName);
-                }
-
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 //string code = manager.GenerateEmailConfirmationToken(user.Id);
                 //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);

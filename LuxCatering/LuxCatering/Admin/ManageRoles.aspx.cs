@@ -6,31 +6,34 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 using System.Drawing;
+using LuxCatering.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
 public partial class ManageRoles : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack)
-            DisplayRolesInGrid();
+        //if (!Page.IsPostBack)
+        //    DisplayRolesInGrid();
 
 
     }
 
-    protected void CreateRoleButton_Click(object sender, EventArgs e)
+    protected  void CreateRoleButton_Click(object sender, EventArgs e)
     {
         string newRoleName = RoleName.Text.Trim();
 
-        if (!Roles.RoleExists(newRoleName))
+        using (var context = new ApplicationDbContext())
         {
-            // Create the role    
-            Roles.CreateRole(newRoleName);
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
 
-            // Refresh the RoleList Grid    
-            DisplayRolesInGrid();
+            roleManager.CreateAsync(new IdentityRole { Name = newRoleName });
+
+            
+            RoleName.Text = string.Empty;
         }
-
-        RoleName.Text = string.Empty;
     }
     private void DisplayRolesInGrid()
     {

@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Web.Security;
 using System.Security.Principal;
+using System.Data;
+using System.Web.Configuration;
 
 namespace LuxCatering
 {
@@ -146,6 +148,30 @@ namespace LuxCatering
                 MessageLabel.Text = "You cannot select " + row.Cells[2].Text + ".";
             }
         }
+        public void BindDataToGridView3()
+        {
+            SqlConnection conn1 = new SqlConnection();
+            conn1.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
+
+            conn1.Open();
+            string binddata = "Select  ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO from PEDIDO order by ID_PEDIDO";
+            SqlCommand com = new SqlCommand(binddata, conn1);
+            SqlDataAdapter dataadapter = new SqlDataAdapter(com);
+            DataSet dataset = new DataSet();
+            dataadapter.Fill(dataset);
+            if (dataset.Tables[0].Rows.Count > 0)
+            {
+                Pedido.DataSource = dataset;
+                Pedido.DataBind();
+            }
+            conn1.Close();
+
+
+        }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -191,12 +217,12 @@ namespace LuxCatering
             string addrow = "insert into  PEDIDO (ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO) values('" + idpedido + "','" + idcliente + "','" + idlocal + "','" + Nome + "','" + datacriacao + "','" + pessoas + "','" + data + "')";
             SqlCommand com = new SqlCommand(addrow, conn);
             com.ExecuteNonQuery();
-            
 
-
+           
             conn.Close();
+            BindDataToGridView3();
 
-           ID_pedido.Text = idpedido.ToString();
+            //ID_pedido.Text = idpedido;
 
         }
 
