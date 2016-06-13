@@ -143,7 +143,7 @@ namespace LuxCatering
             {
                 e.Cancel = true;
                 MessageLabel.Text = "You cannot select " + row.Cells[2].Text + ".";
-                idproduto.Text = row.Cells[1].Text;
+                idproduto.Text = row.Cells[0].Text;
             }
         }
         public void BindDataToGridView3()
