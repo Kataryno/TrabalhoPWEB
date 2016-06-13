@@ -190,7 +190,7 @@ namespace LuxCatering
             
 
             string Nome = ((TextBox)form1.FindControl("nomeevento")).Text;
-            string data = ((TextBox)form1.FindControl("dataevento")).Text;
+            string data =  ((TextBox)form1.FindControl("dataevento")).Text;
             var pessoas = ((TextBox)form1.FindControl("pessoasevento")).Text;
             string datacriacao = DateTime.Now.ToString("dd/mm/yyyy");
             string local = ((TextBox)form1.FindControl("localevento")).Text;
@@ -220,7 +220,7 @@ namespace LuxCatering
 
            
             conn.Close();
-            BindDataToGridView3();
+           // BindDataToGridView3();
 
             //ID_pedido.Text = idpedido;
 

@@ -39,7 +39,7 @@
                     <h5>Local</h5>
                     <asp:TextBox ID="localevento" runat="server" Width="268px"></asp:TextBox><br /><br />
                     <asp:Button ID="Button2" runat="server" Text="Criar Pedido" Width="156px" OnClick="Button2_Click" />
-                      <asp:GridView  ID="Pedido"  AllowSorting="True" CssClass="table table-striped color-table" runat="server" AutoGenerateColumns="false" >
+                  <!--    <asp:GridView  ID="Pedido"  AllowSorting="True" CssClass="table table-striped color-table" runat="server" AutoGenerateColumns="false" >
                              <Columns>
                                  <asp:TemplateField>
                                      <ItemTemplate>
@@ -56,7 +56,7 @@
                              <asp:BoundField DataField="DATA_EVENTO" HeaderText="DATA EVENTO" />
                         
                              </Columns>
-                         </asp:GridView>
+                         </asp:GridView>-->
         
                     <asp:label ID="ID_pedido" runat="server" ></asp:label>
                     <br />
