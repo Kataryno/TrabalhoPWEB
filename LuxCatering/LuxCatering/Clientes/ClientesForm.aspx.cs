@@ -143,6 +143,7 @@ namespace LuxCatering
             {
                 e.Cancel = true;
                 MessageLabel.Text = "You cannot select " + row.Cells[2].Text + ".";
+                idproduto.Text = row.Cells[1].Text;
             }
         }
         public void BindDataToGridView3()
@@ -266,17 +267,29 @@ namespace LuxCatering
                 "Initial Catalog=LuxCatering-DB;" +
                 "User id=sa;" +
                 "Password = pweb;";
+
+            conn.Open();
+            string id_linha = "SELECT TOP 1 ID_LINHA_PEDIDO FROM LINHA_PEDIDO ORDER BY ID_LINHA_PEDIDO DESC"; ;
+          
+            SqlCommand com3 = new SqlCommand(id_linha, conn);
+
+            var idlpedido = (Int32)com3.ExecuteScalar()+1;
+
+            conn.Close();
             conn.Open();
 
             string idpedido = ((Label)form1.FindControl("ID_pedido")).Text;
-            string idlpedido = ((Label)form1.FindControl("dataevento")).Text;
-            var idproduto = ((TextBox)form1.FindControl("pessoasevento")).Text;
-            var qdproduto = ((TextBox)form1.FindControl("pessoasevento")).Text;
+            
+     
+            var idproduto = ((Label)form1.FindControl("idproduto")).Text;
+            var qdproduto = ((TextBox)form1.FindControl("qtproduto")).Text;
 
 
-            string addrow = "insert into  LINHA_PEDIDO (ID_PEDIDO,ID_LINHA_PEDIDO,ID_PRODUTO,QTD_PRODUTO) values('" + idpedido + "','" + idcliente + "','" + idlocal + "','" + Nome + "','" + datacriacao + "','" + pessoas + "','" + data + "')";
+            string addrow = "insert into  LINHA_PEDIDO (ID_PEDIDO,ID_LINHA_PEDIDO,ID_PRODUTO,QTD_PRODUTO) values('" + idpedido + "','" + idlpedido + "','" + idproduto + "','" + qdproduto + "')";
             SqlCommand com = new SqlCommand(addrow, conn);
             com.ExecuteNonQuery();
+            conn.Close();
+            BindDataToGridView4();
         }
 
         protected void GridView3_SelectedIndexChanged1(object sender, EventArgs e)

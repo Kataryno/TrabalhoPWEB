@@ -61,8 +61,10 @@
                     <asp:label ID="ID_pedido" runat="server" ></asp:label>
                     <br />
                     <asp:label ID="linhapedido" runat="server" ></asp:label>
-                    
+                    <br />
+                     <asp:label ID="idproduto" runat="server" ></asp:label>
                      <div id="produto" style="float:left;padding:5px;">
+
                     <h4>Tabela de Produtos:</h4>
                     
                              
@@ -106,7 +108,7 @@
                        
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [PRODUTO]"></asp:SqlDataSource>
                        
-                     <p>Quantidade</p>    <asp:textbox runat="server" Width="20px"></asp:textbox><p></p>
+                     <p>Quantidade</p>    <asp:textbox id="qtproduto" runat="server" Width="20px"></asp:textbox><p></p>
  <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar" />
     </form>
 
@@ -120,7 +122,7 @@
                                  </asp:TemplateField>
                              <asp:BoundField DataField="ID_PEDIDO" HeaderText="PEDIDO" />
                             <asp:BoundField DataField="ID_LINHA_PEDIDO" HeaderText="LINHA" />
-                             <asp:BoundField DataField="ID_PRDOUTO" HeaderText="PRODUTO" />
+                             <asp:BoundField DataField="ID_PRODUTO" HeaderText="PRODUTO" />
                             <asp:BoundField DataField="QTD_PRODUTO" HeaderText="QUANTIDADE" />
                         
                         
