@@ -108,10 +108,7 @@ namespace LuxCatering
 
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-
-        }
+    
 
         protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -158,7 +155,8 @@ namespace LuxCatering
                 "Password = pweb;";
 
             conn1.Open();
-            string binddata = "Select  ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO from PEDIDO order by ID_PEDIDO";
+            var idpedido= ((Label)form1.FindControl("ID_pedido")).Text;
+            string binddata = "Select  ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO from PEDIDO where ID_PEDIDO = '" +  idpedido +"' order by ID_PEDIDO";
             SqlCommand com = new SqlCommand(binddata, conn1);
             SqlDataAdapter dataadapter = new SqlDataAdapter(com);
             DataSet dataset = new DataSet();
@@ -172,7 +170,31 @@ namespace LuxCatering
 
 
         }
+        public void BindDataToGridView4()
+        {
+            SqlConnection conn1 = new SqlConnection();
+            conn1.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
 
+            conn1.Open();
+            var idpedido = ((Label)form1.FindControl("ID_pedido")).Text;
+            string binddata = "Select  ID_PEDIDO,ID_LINHA_PEDIDO,ID_PRODUTO,QTD_PRODUTO from LINHA_PEDIDO where ID_PEDIDO = '" + idpedido + "' order by ID_PEDIDO";
+            SqlCommand com = new SqlCommand(binddata, conn1);
+            SqlDataAdapter dataadapter = new SqlDataAdapter(com);
+            DataSet dataset = new DataSet();
+            dataadapter.Fill(dataset);
+            if (dataset.Tables[0].Rows.Count > 0)
+            {
+                LPedido.DataSource = dataset;
+                LPedido.DataBind();
+            }
+            conn1.Close();
+
+
+        }
         protected void Button2_Click(object sender, EventArgs e)
         {
             SqlConnection conn = new SqlConnection();
@@ -192,7 +214,7 @@ namespace LuxCatering
             string Nome = ((TextBox)form1.FindControl("nomeevento")).Text;
             string data =  ((TextBox)form1.FindControl("dataevento")).Text;
             var pessoas = ((TextBox)form1.FindControl("pessoasevento")).Text;
-            string datacriacao = DateTime.Now.ToString("dd/mm/yyyy");
+            var datacriacao = DateTime.Now.ToString("yyyy/m/d");
             string local = ((TextBox)form1.FindControl("localevento")).Text;
             //string email = HttpContext.Current.User.Identity.Name;
             conn.Close();
@@ -220,10 +242,41 @@ namespace LuxCatering
 
            
             conn.Close();
-           // BindDataToGridView3();
+            ID_pedido.Text = idpedido.ToString();
+            BindDataToGridView3();
+            conn.Open();
+            string id_linha = "SELECT TOP 1 ID_LINHA_PEDIDO FROM LINHA_PEDIDO ORDER BY ID_LINHA_PEDIDO DESC"; ;
+            // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
+            //"alert('" + last +Nome + Descricao+"');", true);
+            SqlCommand com3 = new SqlCommand(id_linha, conn);
 
-            //ID_pedido.Text = idpedido;
+            var id_linha1 = (Int32)com2.ExecuteScalar();
+            linhapedido.Text = id_linha1.ToString();
 
+
+        }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+           
+
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
+            conn.Open();
+
+            string idpedido = ((Label)form1.FindControl("ID_pedido")).Text;
+            string idlpedido = ((Label)form1.FindControl("dataevento")).Text;
+            var idproduto = ((TextBox)form1.FindControl("pessoasevento")).Text;
+            var qdproduto = ((TextBox)form1.FindControl("pessoasevento")).Text;
+
+
+            string addrow = "insert into  LINHA_PEDIDO (ID_PEDIDO,ID_LINHA_PEDIDO,ID_PRODUTO,QTD_PRODUTO) values('" + idpedido + "','" + idcliente + "','" + idlocal + "','" + Nome + "','" + datacriacao + "','" + pessoas + "','" + data + "')";
+            SqlCommand com = new SqlCommand(addrow, conn);
+            com.ExecuteNonQuery();
         }
 
         protected void GridView3_SelectedIndexChanged1(object sender, EventArgs e)

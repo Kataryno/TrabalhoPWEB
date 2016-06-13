@@ -39,7 +39,7 @@
                     <h5>Local</h5>
                     <asp:TextBox ID="localevento" runat="server" Width="268px"></asp:TextBox><br /><br />
                     <asp:Button ID="Button2" runat="server" Text="Criar Pedido" Width="156px" OnClick="Button2_Click" />
-                  <!--    <asp:GridView  ID="Pedido"  AllowSorting="True" CssClass="table table-striped color-table" runat="server" AutoGenerateColumns="false" >
+                    <asp:GridView  ID="Pedido"  AllowSorting="True" CssClass="table table-striped color-table" runat="server" AutoGenerateColumns="false" >
                              <Columns>
                                  <asp:TemplateField>
                                      <ItemTemplate>
@@ -56,17 +56,18 @@
                              <asp:BoundField DataField="DATA_EVENTO" HeaderText="DATA EVENTO" />
                         
                              </Columns>
-                         </asp:GridView>-->
+                         </asp:GridView>
         
                     <asp:label ID="ID_pedido" runat="server" ></asp:label>
                     <br />
+                    <asp:label ID="linhapedido" runat="server" ></asp:label>
                     
                      <div id="produto" style="float:left;padding:5px;">
                     <h4>Tabela de Produtos:</h4>
                     
                              
 
-     <h3>GridView Select Example</h3>
+     <h3>Seleccionar Produto:</h3>
 
      <asp:gridview id="GridView2" 
        datasourceid="SqlDataSource1" 
@@ -108,6 +109,23 @@
                      <p>Quantidade</p>    <asp:textbox runat="server" Width="20px"></asp:textbox><p></p>
  <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar" />
     </form>
+
+                          <asp:GridView  ID="LPedido"  AllowSorting="True" CssClass="table table-striped color-table" runat="server" AutoGenerateColumns="false" >
+                             <Columns>
+                                 <asp:TemplateField>
+                                     <ItemTemplate>
+                                         <asp:HiddenField ID="HiddenField1" runat="server" Value='<%#DataBinder.Eval(Container.DataItem,"ID_PEDIDO")  %>' />
+                                     </ItemTemplate>
+                                     
+                                 </asp:TemplateField>
+                             <asp:BoundField DataField="ID_PEDIDO" HeaderText="PEDIDO" />
+                            <asp:BoundField DataField="ID_LINHA_PEDIDO" HeaderText="LINHA" />
+                             <asp:BoundField DataField="ID_PRDOUTO" HeaderText="PRODUTO" />
+                            <asp:BoundField DataField="QTD_PRODUTO" HeaderText="QUANTIDADE" />
+                        
+                        
+                             </Columns>
+                         </asp:GridView>
 
                     </div>
                        
