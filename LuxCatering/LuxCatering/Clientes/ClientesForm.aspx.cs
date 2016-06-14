@@ -250,9 +250,11 @@ namespace LuxCatering
             // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
             //"alert('" + last +Nome + Descricao+"');", true);
             SqlCommand com3 = new SqlCommand(id_linha, conn);
+           
 
             var id_linha1 = (Int32)com2.ExecuteScalar();
             linhapedido.Text = id_linha1.ToString();
+            conn.Close();
 
 
         }

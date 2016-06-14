@@ -162,7 +162,7 @@ WHERE ([ID_PEDIDO] = @ID_PEDIDO);
                             </UpdateParameters>
                         </asp:SqlDataSource>
                          <h4>Enviar Orçamento:</h4>
-                        <asp:detailsview runat="server" height="50px" width="570px" DataSourceID="SqlDataSource5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateRows="False" DataKeyNames="ID_ORCAMENTO" >
+                        <asp:detailsview runat="server" height="50px" width="604px" DataSourceID="SqlDataSource5" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" AutoGenerateRows="False" DataKeyNames="ID_ORCAMENTO" >
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                             <CommandRowStyle BackColor="#E2DED6" Font-Bold="True" />
                             <EditRowStyle BackColor="#999999" />
