@@ -21,22 +21,22 @@ namespace LuxCatering.Controllers
 
 
         // GET: Role
-        public ActionResult Index()
-        {
-            var Roles = context.Roles.ToList();
-            return View();
-        }
-        public ActionResult Create()
-        {
-            var Role = new IdentityRole();
-            return View(Role);
-        }
-        [HttpPost]
-        public ActionResult Create(IdentityRole Role)
-        {
-            context.Roles.Add(Role);
-            context.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //public ActionResult Index()
+        //{
+        //    var Roles = context.Roles.ToList();
+        //    return View();
+        //}
+        //public ActionResult Create()
+        //{
+        //    var Role = new IdentityRole();
+        //    return View(Role);
+        //}
+        //[HttpPost]
+        //public ActionResult Create(IdentityRole Role)
+        //{
+        //    context.Roles.Add(Role);
+        //    context.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
     }
 }

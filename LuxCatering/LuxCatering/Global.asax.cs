@@ -20,7 +20,6 @@ namespace LuxCatering
             // Cria roles para as aplicações
             RoleActions roleActions = new RoleActions();
             roleActions.CreateRoles();
-
         }
     }
 }

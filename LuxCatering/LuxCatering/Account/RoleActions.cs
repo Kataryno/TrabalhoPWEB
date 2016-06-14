@@ -10,10 +10,6 @@ namespace LuxCatering.Account
 {
     internal class RoleActions
     {
-        internal void AddUserAndRole()
-        {
-            
-        }
 
         internal void CreateRoles()
         {

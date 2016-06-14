@@ -7,72 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LuxCatering {
+namespace LuxCatering.Clientes {
     
     
-    public partial class SiteMaster {
+    public partial class Avaliacao {
         
         /// <summary>
-        /// Stylesheets control.
+        /// ddlFornecedores control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Stylesheets;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFornecedores;
         
         /// <summary>
-        /// adminLink control.
+        /// dsFornecedoresAvaliacao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor adminLink;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsFornecedoresAvaliacao;
         
         /// <summary>
-        /// comumLink control.
+        /// ddlComunicacao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor comumLink;
+        protected global::System.Web.UI.WebControls.DropDownList ddlComunicacao;
         
         /// <summary>
-        /// fornecLink control.
+        /// ddlSimpatia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor fornecLink;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSimpatia;
         
         /// <summary>
-        /// clientLink control.
+        /// ddlPreco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor clientLink;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPreco;
         
         /// <summary>
-        /// avaliaLink control.
+        /// ddlServico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor avaliaLink;
+        protected global::System.Web.UI.WebControls.DropDownList ddlServico;
         
         /// <summary>
-        /// MainContent control.
+        /// ddlGlobal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGlobal;
     }
 }
