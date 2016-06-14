@@ -298,5 +298,31 @@ namespace LuxCatering
         {
 
         }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
+
+           
+            conn.Open();
+
+           // string idcliente = ((Label)form1.FindControl("ID_pedido")).Text;
+
+
+          
+
+
+       /*     string addrow = "select LINHA_PEDIDO (ID_PEDIDO,ID_LINHA_PEDIDO,ID_PRODUTO,QTD_PRODUTO) values('" + idpedido + "','" + idlpedido + "','" + idproduto + "','" + qdproduto + "')";
+            SqlCommand com = new SqlCommand(addrow, conn);
+            com.ExecuteNonQuery();
+            conn.Close();
+            BindDataToGridView4();*/
+        }
     }
 }
