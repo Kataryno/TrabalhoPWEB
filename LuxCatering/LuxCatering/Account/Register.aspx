@@ -2,30 +2,28 @@
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
 
-    <div id="framelogin">
+    <div id="frameregisto">
         <h1>Registo</h1>
         <p class="text-danger">
             <asp:literal runat="server" id="ErrorMessage" />
         </p>
-
-        <div class="form-horizontal">
+              
             <h4>Criar nova conta</h4>
             <br />
-            
-            <asp:label runat="server" cssclass="col-md-2 control-label" text="Nome:"></asp:label>
+            <div class="form-group">
+            <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Nome"></asp:label>
             <asp:textbox runat="server" id="nomeuser" cssclass="form-control" />
             <%--<asp:textbox id="nomeuser" runat="server"></asp:textbox>--%>
             <br />
-
-            <asp:label runat="server" text="Nif:"></asp:label>
+            <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="NIF"></asp:label>
             <asp:textbox runat="server" id="nifuser" cssclass="form-control" />
             <%--<asp:textbox id="nifuser" runat="server"></asp:textbox>--%>
             <br />
-
-            <asp:label runat="server" text="Localidade:"></asp:label>
+            <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Localidade"></asp:label>
             <asp:textbox runat="server" id="localidadeuser" cssclass="form-control" />
+            <br />
             <asp:validationsummary runat="server" cssclass="text-danger" />
-            <div class="form-group">
+            
                 <asp:label runat="server" associatedcontrolid="Email" cssclass="col-md-2 control-label">Email</asp:label>
                 <div class="col-md-10">
                     <asp:textbox runat="server" id="Email" cssclass="form-control" textmode="Email" />
@@ -63,5 +61,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 </asp:Content>
