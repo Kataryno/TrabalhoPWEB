@@ -18,9 +18,21 @@ namespace LuxCatering
 
         protected void Page_Init(object sender, EventArgs e)
         {
+            if (HttpContext.Current.User.IsInRole("Cliente"))
+            {
+                clientLink.Visible = true;
+                comumLink.Visible = true;
+            }
+            if (HttpContext.Current.User.IsInRole("Fornecedor"))
+            {
+                fornecLink.Visible = true;
+                comumLink.Visible = true;
+            }
             if (HttpContext.Current.User.IsInRole("Administrador"))
             {
-                adminLink.Visible = true;
+                clientLink.Visible = true;
+                fornecLink.Visible = true;
+                comumLink.Visible = true;
             }
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
@@ -54,10 +66,10 @@ namespace LuxCatering
 
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User.IsInRole("Administrador"))
-            {
-                adminLink.Visible = true;
-            }
+            //if (HttpContext.Current.User.IsInRole("Administrador"))
+            //{
+            //    adminLink.Visible = true;
+            //}
             if (!IsPostBack)
             {
                 // Set Anti-XSRF token
@@ -77,9 +89,21 @@ namespace LuxCatering
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (HttpContext.Current.User.IsInRole("Cliente"))
+            {
+                clientLink.Visible = true;
+                comumLink.Visible = true;
+            }
+            if (HttpContext.Current.User.IsInRole("Fornecedor"))
+            {
+                fornecLink.Visible = true;
+                comumLink.Visible = true;
+            }
             if (HttpContext.Current.User.IsInRole("Administrador"))
             {
-                adminLink.Visible = true;
+                clientLink.Visible = true;
+                fornecLink.Visible = true;
+                comumLink.Visible = true;
             }
         }
 

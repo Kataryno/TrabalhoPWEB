@@ -200,6 +200,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Clientes\Avaliacao.aspx" />
     <Content Include="Clientes\ClientesForm.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -214,15 +215,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
     <Content Include="Admin\Web.config" />
+    <Content Include="Fornecedores\Web.config" />
+    <Content Include="Clientes\Web.config" />
+    <Content Include="Comum\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="FornecedoresFormR.aspx" />
     <Content Include="Fornecedores\FornecedoresFormPedidos.aspx" />
-    <Content Include="Fornecedores\FornecedoresForm.aspx" />
+    <Content Include="Comum\CriaProduto.aspx" />
     <Content Include="Admin\Manager.aspx" />
-    <Content Include="Roles\CreateUserWizardWithRoles.aspx" />
-    <Content Include="Admin\ManageRoles.aspx" />
-    <Content Include="Roles\RoleBasedAuthorization.aspx" />
-    <Content Include="Admin\UsersAndRoles.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -409,6 +409,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Clientes\Avaliacao.aspx.cs">
+      <DependentUpon>Avaliacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Avaliacao.aspx.designer.cs">
+      <DependentUpon>Avaliacao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\ClientesForm.aspx.cs">
       <DependentUpon>ClientesForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -448,12 +455,12 @@
     <Compile Include="Fornecedores\FornecedoresFormPedidos.aspx.designer.cs">
       <DependentUpon>FornecedoresFormPedidos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Fornecedores\FornecedoresForm.aspx.cs">
-      <DependentUpon>FornecedoresForm.aspx</DependentUpon>
+    <Compile Include="Comum\CriaProduto.aspx.cs">
+      <DependentUpon>CriaProduto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Fornecedores\FornecedoresForm.aspx.designer.cs">
-      <DependentUpon>FornecedoresForm.aspx</DependentUpon>
+    <Compile Include="Comum\CriaProduto.aspx.designer.cs">
+      <DependentUpon>CriaProduto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -469,31 +476,6 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Roles\CreateUserWizardWithRoles.aspx.cs">
-      <DependentUpon>CreateUserWizardWithRoles.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Roles\CreateUserWizardWithRoles.aspx.designer.cs">
-      <DependentUpon>CreateUserWizardWithRoles.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\ManageRoles.aspx.cs">
-      <DependentUpon>ManageRoles.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ManageRoles.aspx.designer.cs">
-      <DependentUpon>ManageRoles.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Roles\RoleBasedAuthorization.aspx.cs">
-      <DependentUpon>RoleBasedAuthorization.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Roles\RoleBasedAuthorization.aspx.designer.cs">
-      <DependentUpon>RoleBasedAuthorization.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\UsersAndRoles.aspx.cs">
-      <DependentUpon>UsersAndRoles.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
