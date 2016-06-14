@@ -9,7 +9,7 @@
         </p>
               
             <h4>Criar nova conta</h4>
-            <br />
+            <hr />
             <div class="form-group">
             <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Nome"></asp:label>
             <asp:textbox runat="server" id="nomeuser" cssclass="form-control" />
@@ -22,6 +22,14 @@
             <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Localidade"></asp:label>
             <asp:textbox runat="server" id="localidadeuser" cssclass="form-control" />
             <br />
+            <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Telefone"></asp:label>
+            <asp:textbox runat="server" id="telefone" cssclass="form-control" />
+            <br />
+            <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Telemóvel"></asp:label>
+            <asp:textbox runat="server" id="telemovel" cssclass="form-control" />
+            <br />
+
+
             <asp:validationsummary runat="server" cssclass="text-danger" />
             
                 <asp:label runat="server" associatedcontrolid="Email" cssclass="col-md-2 control-label">Email</asp:label>
