@@ -7,6 +7,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Owin;
 using LuxCatering.Models;
+using System.Data.SqlClient;
+using System.Web.UI.WebControls;
 
 namespace LuxCatering.Account
 {
@@ -35,10 +37,28 @@ namespace LuxCatering.Account
                     result = manager.AddToRole(manager.FindByEmail(Email.Text).Id, RoleName);
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString =
+                    "Data Source=espinheira.no-ip.org;" +
+                    "Initial Catalog=LuxCatering-DB;" +
+                    "User id=sa;" +
+                    "Password = pweb;";
+
+                conn.Open();
+
+                string Nome = ((TextBox)userlog.FindControl("nomeuser")).Text;
+                string nif = ((TextBox)userlog.FindControl("nifuser")).Text;
+                var localidade = ((TextBox)userlog.FindControl("localidadeuser")).Text;
+                var email =  Email.Text;
+
+
+
+                string addrow = "insert into  UTILIZADOR (NOME,EMAIL,LOCALIDADE,NIF) values('" + Nome + "','" + email + "','" + localidade + "','" + nif + "')";
+                SqlCommand com = new SqlCommand(addrow, conn);
+                com.ExecuteNonQuery();
+
+                
+
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
@@ -47,6 +67,8 @@ namespace LuxCatering.Account
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
+
+
         }
     }
 }

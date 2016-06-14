@@ -42,6 +42,21 @@
                 </asp:radiobuttonlist>
             </div>
         </div>
+        <div id="userlog" runat="server">
+            <asp:label runat="server" text="Nome:"></asp:label>
+
+            <asp:textbox id="nomeuser" runat="server"></asp:textbox>
+            <br />
+
+              <asp:label runat="server" text="Nif:"></asp:label>
+
+            <asp:textbox id="nifuser" runat="server"></asp:textbox>
+            <br />
+
+              <asp:label runat="server" text="Localidade:"></asp:label>
+
+            <asp:textbox id="localidadeuser" runat="server"></asp:textbox>
+        </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Registar" CssClass="btn btn-default" />
