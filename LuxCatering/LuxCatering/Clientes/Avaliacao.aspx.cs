@@ -32,7 +32,7 @@ namespace LuxCatering.Clientes
         //    string Descricao = ((TextBox)form1.FindControl("descricaoprod")).Text;
             
 
-            string addrow = "INSERT INTO AVALIACAO (ID_FORNECEDOR, GLOBAL, COMUNICACAO, PRECO, SERVICO, SIMPATIA) VALUES(" + ddlFornecedores.DataValueField + "," + Int32.Parse(ddlGlobal.SelectedValue) + "," + Int32.Parse(ddlComunicacao.SelectedValue) + "," + Int32.Parse(ddlPreco.SelectedValue) + "," + Int32.Parse(ddlServico.SelectedValue) + "," + Int32.Parse(ddlSimpatia.SelectedValue) + ")";
+            string addrow = "INSERT INTO AVALIACAO (ID_FORNECEDOR, GLOBAL, COMUNICACAO, PRECO, SERVICO, SIMPATIA) VALUES(" + Int32.Parse(ddlFornecedores.SelectedValue) + "," + Int32.Parse(ddlGlobal.SelectedValue) + "," + Int32.Parse(ddlComunicacao.SelectedValue) + "," + Int32.Parse(ddlPreco.SelectedValue) + "," + Int32.Parse(ddlServico.SelectedValue) + "," + Int32.Parse(ddlSimpatia.SelectedValue) + ")";
 
             SqlCommand com = new SqlCommand(addrow, conn);
             com.ExecuteNonQuery();
