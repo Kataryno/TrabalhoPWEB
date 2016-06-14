@@ -20,6 +20,7 @@ namespace LuxCatering
         {
             if (HttpContext.Current.User.IsInRole("Cliente"))
             {
+                avaliaLink.Visible = true;
                 clientLink.Visible = true;
                 comumLink.Visible = true;
             }
@@ -30,6 +31,7 @@ namespace LuxCatering
             }
             if (HttpContext.Current.User.IsInRole("Administrador"))
             {
+                avaliaLink.Visible = true;
                 clientLink.Visible = true;
                 fornecLink.Visible = true;
                 comumLink.Visible = true;
@@ -91,6 +93,7 @@ namespace LuxCatering
         {
             if (HttpContext.Current.User.IsInRole("Cliente"))
             {
+                avaliaLink.Visible = true;
                 clientLink.Visible = true;
                 comumLink.Visible = true;
             }
@@ -101,6 +104,7 @@ namespace LuxCatering
             }
             if (HttpContext.Current.User.IsInRole("Administrador"))
             {
+                avaliaLink.Visible = true;
                 clientLink.Visible = true;
                 fornecLink.Visible = true;
                 comumLink.Visible = true;
