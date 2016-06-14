@@ -37,6 +37,7 @@ namespace LuxCatering.Account
                     result = manager.AddToRole(manager.FindByEmail(Email.Text).Id, RoleName);
                 }
 
+
                 SqlConnection conn = new SqlConnection();
                 conn.ConnectionString =
                     "Data Source=espinheira.no-ip.org;" +
@@ -50,8 +51,6 @@ namespace LuxCatering.Account
                 string nif = ((TextBox)userlog.FindControl("nifuser")).Text;
                 var localidade = ((TextBox)userlog.FindControl("localidadeuser")).Text;
                 var email =  Email.Text;
-
-
 
                 string addrow = "insert into  UTILIZADOR (NOME,EMAIL,LOCALIDADE,NIF) values('" + Nome + "','" + email + "','" + localidade + "','" + nif + "')";
                 SqlCommand com = new SqlCommand(addrow, conn);
