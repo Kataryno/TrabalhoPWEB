@@ -200,6 +200,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="Clientes\Respostas.aspx" />
     <Content Include="Clientes\Avaliacao.aspx" />
     <Content Include="Clientes\ClientesForm.aspx" />
     <Content Include="Contact.aspx" />
@@ -409,6 +410,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Clientes\Respostas.aspx.cs">
+      <DependentUpon>Respostas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes\Respostas.aspx.designer.cs">
+      <DependentUpon>Respostas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Clientes\Avaliacao.aspx.cs">
       <DependentUpon>Avaliacao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

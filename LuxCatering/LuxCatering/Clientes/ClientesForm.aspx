@@ -81,7 +81,7 @@
        runat="server" DataKeyNames="ID_PRODUTO" AllowPaging="True">
 
          <Columns>
-             <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" ReadOnly="True" SortExpression="ID_PRODUTO" />
+             <asp:BoundField DataField="ID_PRODUTO" HeaderText="ID_PRODUTO" InsertVisible="False" ReadOnly="True" SortExpression="ID_PRODUTO" />
              <asp:BoundField DataField="ID_CATEGORIA" HeaderText="ID_CATEGORIA" SortExpression="ID_CATEGORIA" />
              <asp:BoundField DataField="NOME" HeaderText="NOME" SortExpression="NOME" />
              <asp:BoundField DataField="DESCRICAO" HeaderText="DESCRICAO" SortExpression="DESCRICAO" />
