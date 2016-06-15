@@ -22,31 +22,31 @@ namespace LuxCatering.Account {
         protected global::System.Web.UI.WebControls.Literal ErrorMessage;
         
         /// <summary>
-        /// nomeuser control.
+        /// nome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nomeuser;
+        protected global::System.Web.UI.WebControls.TextBox nome;
         
         /// <summary>
-        /// nifuser control.
+        /// nif control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox nifuser;
+        protected global::System.Web.UI.WebControls.TextBox nif;
         
         /// <summary>
-        /// localidadeuser control.
+        /// morada control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox localidadeuser;
+        protected global::System.Web.UI.WebControls.TextBox morada;
         
         /// <summary>
         /// telefone control.
