@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LuxCatering.Respostas {
+namespace LuxCatering.Clientes {
     
     
     public partial class Respostas {

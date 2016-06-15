@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Respostas.aspx.cs" Inherits="LuxCatering.Clientes.Respostas" %>
 
 
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="ContentRepo" ContentPlaceHolderID="MainContent" runat="server">
     <div>
     <asp:Label runat="server" id="email"><%: Context.User.Identity.GetUserName()  %></asp:Label>
        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LuxCatering-DBConnectionString %>" SelectCommand="SELECT * FROM [CLIENTE] WHERE ([EMAIL] = @EMAIL)" >
