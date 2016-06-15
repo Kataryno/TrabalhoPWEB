@@ -124,7 +124,7 @@ namespace LuxCatering
 
            
             var preco = ((TextBox)precoorca.FindControl("preco")).Text;
-            var datacriacao = DateTime.Now.ToString("yyyy/m/d");
+            var datacriacao = DateTime.Now.ToString("yyyy/MM/dd");
             var idpedido = pedidoLabel.Text;
         
        

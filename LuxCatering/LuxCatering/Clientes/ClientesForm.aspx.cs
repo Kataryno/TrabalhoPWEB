@@ -216,7 +216,7 @@ namespace LuxCatering
             string Nome = ((TextBox)form1.FindControl("nomeevento")).Text;
             string data =  ((TextBox)form1.FindControl("dataevento")).Text;
             var pessoas = ((TextBox)form1.FindControl("pessoasevento")).Text;
-            var datacriacao = DateTime.Now.ToString("yyyy/m/d");
+            var datacriacao = DateTime.Now.ToString("yyyy/MM/dd");
             string local = ((TextBox)form1.FindControl("localevento")).Text;
             //string email = HttpContext.Current.User.Identity.Name;
             conn.Close();
