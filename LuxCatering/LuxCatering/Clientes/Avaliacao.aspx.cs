@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -26,7 +28,10 @@ namespace LuxCatering.Clientes
 
             conn.Open();
 
-            string addrow = "INSERT INTO AVALIACAO (ID_FORNECEDOR, GLOBAL, COMUNICACAO, PRECO, SERVICO, SIMPATIA) VALUES(" + Int32.Parse(ddlFornecedores.SelectedValue) + "," + Int32.Parse(ddlGlobal.SelectedValue) + "," + Int32.Parse(ddlComunicacao.SelectedValue) + "," + Int32.Parse(ddlPreco.SelectedValue) + "," + Int32.Parse(ddlServico.SelectedValue) + "," + Int32.Parse(ddlSimpatia.SelectedValue) + ")";
+
+            string UserID = "(SELECT ID_CLIENTE FROM CLIENTE WHERE EMAIL = '" + Context.User.Identity.GetUserName() + "')";
+
+            string addrow = "INSERT INTO AVALIACAO (ID_FORNECEDOR, GLOBAL, COMUNICACAO, PRECO, SERVICO, SIMPATIA, ID_CLIENTE) VALUES(" + Int32.Parse(ddlFornecedores.SelectedValue) + "," + Int32.Parse(ddlGlobal.SelectedValue) + "," + Int32.Parse(ddlComunicacao.SelectedValue) + "," + Int32.Parse(ddlPreco.SelectedValue) + "," + Int32.Parse(ddlServico.SelectedValue) + "," + Int32.Parse(ddlSimpatia.SelectedValue) + "," + UserID + ")";
 
             SqlCommand com = new SqlCommand(addrow, conn);
             com.ExecuteNonQuery();
