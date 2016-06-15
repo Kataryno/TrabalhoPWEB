@@ -12,15 +12,13 @@
             <hr />
             <div class="form-group">
             <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Nome"></asp:label>
-            <asp:textbox runat="server" id="nomeuser" cssclass="form-control" />
-            <%--<asp:textbox id="nomeuser" runat="server"></asp:textbox>--%>
+            <asp:textbox runat="server" id="nome" cssclass="form-control" />
             <br />
             <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="NIF"></asp:label>
-            <asp:textbox runat="server" id="nifuser" cssclass="form-control" />
-            <%--<asp:textbox id="nifuser" runat="server"></asp:textbox>--%>
+            <asp:textbox runat="server" id="nif" cssclass="form-control" />
             <br />
-            <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Localidade"></asp:label>
-            <asp:textbox runat="server" id="localidadeuser" cssclass="form-control" />
+            <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Morada"></asp:label>
+            <asp:textbox runat="server" id="morada" cssclass="form-control" />
             <br />
             <asp:label runat="server" cssclass="col-md-2 control-label" Font-Bold="true" text="Telefone"></asp:label>
             <asp:textbox runat="server" id="telefone" cssclass="form-control" />

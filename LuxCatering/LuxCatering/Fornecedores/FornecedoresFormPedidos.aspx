@@ -17,7 +17,7 @@
     </script>
 
 
-   <div style="height:90%; width:90%; background-color:antiquewhite">
+   <div id="backgroudform">
     <div id="form_1" runat="server">
     
       

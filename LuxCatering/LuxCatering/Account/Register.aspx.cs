@@ -47,17 +47,12 @@ namespace LuxCatering.Account
 
                 conn.Open();
 
-                string Nome = ((TextBox)userlog.FindControl("nomeuser")).Text;
-                string nif = ((TextBox)userlog.FindControl("nifuser")).Text;
-                var localidade = ((TextBox)userlog.FindControl("localidadeuser")).Text;
-                var email =  Email.Text;
+                string addrow = "INSERT INTO " + RoleName + " (NOME, MORADA, NIF, TELEFONE, TELEMOVEL, EMAIL) VALUES ('" + nome.Text + "','" + morada.Text + "'," + Int32.Parse(nif.Text) + "," + Int32.Parse(telefone.Text) + "," + Int32.Parse(telemovel.Text) + ",'" + Email.Text + "')";
 
-                string addrow = "insert into  UTILIZADOR (NOME,EMAIL,LOCALIDADE,NIF) values('" + Nome + "','" + email + "','" + localidade + "','" + nif + "')";
                 SqlCommand com = new SqlCommand(addrow, conn);
                 com.ExecuteNonQuery();
 
-                
-
+                conn.Close();
 
                 signInManager.SignIn(user, isPersistent: false, rememberBrowser: false);
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
@@ -66,8 +61,6 @@ namespace LuxCatering.Account
             {
                 ErrorMessage.Text = result.Errors.FirstOrDefault();
             }
-
-
         }
     }
 }
