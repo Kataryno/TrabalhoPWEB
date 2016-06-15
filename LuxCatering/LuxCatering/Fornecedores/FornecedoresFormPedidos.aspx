@@ -25,14 +25,7 @@
         <table class="nav-justified">
             <tr>
                 <td class="auto-style1"><br />
-                    <div></div>,
-             <!--  <div  onclick="produto()" style="margin-left:10%;margin-top:15%; border-style:solid;border-width: 5px;border-color:brown;background-color:bisque">
-                    <asp:Label ID="Label1" runat="server" Text="Introduzir Produto" style="padding: 10px;width: 60%;"></asp:Label>
-               </div>
-                         <br /><br />
-                     <div  onclick="orcamento()" style="margin-left:10%;margin-top:15%; border-style: solid;border-width: 5px;border-color:brown;background-color:burlywood">
-                    <asp:Label ID="Label2" runat="server" Text="Responder a Pedidos" style="padding: 10px;width: 60%;"></asp:Label>
-                 </div>-->
+                    <div></div>
                 </td>
                
                 <td >
@@ -113,7 +106,7 @@
                             <SortedDescendingCellStyle BackColor="#E9EBEF" />
                             <SortedDescendingHeaderStyle BackColor="#4870BE" />
                         </asp:GridView>
-                        <asp:Label runat="server" id="email"><%: Context.User.Identity.GetUserName()  %></asp:Label>
+                        <%--<asp:Label runat="server" id="email"><%: Context.User.Identity.GetUserName()  %></asp:Label>--%>
                          <asp:label id="pedidoLabel"
         forecolor="Black"
         runat="server"/><br />

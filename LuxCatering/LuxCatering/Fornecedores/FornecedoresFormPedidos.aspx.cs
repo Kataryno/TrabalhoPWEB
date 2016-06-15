@@ -39,24 +39,18 @@ namespace LuxCatering
             if (!_isRefresh)
                 Response.Write(DateTime.Now.Millisecond.ToString());
         }
-        protected void Page_Load(object sender, EventArgs e)
-          {
-          
-            
-            
 
-            
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
         }
-  
-     
-     
-   
-     
+
+
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        
+
         protected void FormView1_ItemDeleted(object sender, FormViewDeletedEventArgs e)
         {
 
@@ -122,25 +116,21 @@ namespace LuxCatering
             string nomefor = (String)com2.ExecuteScalar();
             conn.Close();
 
-           
+
             var preco = ((TextBox)precoorca.FindControl("preco")).Text;
             var datacriacao = DateTime.Now.ToString("yyyy/MM/dd");
             var idpedido = pedidoLabel.Text;
-        
-       
+
+
             conn.Open();
-            string addrow = "insert into  ORCAMENTO (ID_PEDIDO,ID_FORNECEDOR,NOME,DATA_CRIACAO,PRECO_TOTAL) values('"+idpedido+"','" + idfor + "','" + nomefor + "','" + datacriacao + "','" + preco + "')";
+            string addrow = "insert into  ORCAMENTO (ID_PEDIDO,ID_FORNECEDOR,NOME,DATA_CRIACAO,PRECO_TOTAL) values('" + idpedido + "','" + idfor + "','" + nomefor + "','" + datacriacao + "','" + preco + "')";
             SqlCommand com = new SqlCommand(addrow, conn);
             com.ExecuteNonQuery();
 
 
             conn.Close();
-         
+
         }
-
-      
     }
-
-
-    }
+}
 
