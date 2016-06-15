@@ -133,3 +133,15 @@ input[type="select"] {
   width: 600px;
   height: 650px;
 }
+
+#backgroudform{
+    position: relative;
+    padding-right: 15px;
+  padding-left: 15px;
+    height:95%; 
+    width:90%; 
+    background-color:antiquewhite;
+    border-radius: 20px;
+    border: 2px solid #000000;
+   margin:auto;
+}

@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="Stylesheets" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+<div id="backgroudform">
     <h3>Avaliação</h3>
     Seleccione o fornecedor a avaliar
         <asp:dropdownlist ID="ddlFornecedores" runat="server" datasourceid="dsFornecedoresAvaliacao" datatextfield="NOME" datavaluefield="ID_FORNECEDOR"></asp:dropdownlist>
@@ -61,4 +63,5 @@
       <br />
     <br />
     <asp:button runat="server" text="Enviar Avaliação" OnClick="EnviaAvaliacao"/>
+</div>
 </asp:Content>

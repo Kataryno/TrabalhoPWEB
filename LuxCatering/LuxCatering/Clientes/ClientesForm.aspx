@@ -17,7 +17,7 @@
     </script>
 
 
-   <div style="height:90%; width:90%; background-color:antiquewhite">
+   <div id="backgroudform">
        <div id="form1" runat="server">
     
       
@@ -145,7 +145,7 @@
       
     
     </div>
-  </div>  
+  </%--div>  
     </asp:Content>
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="Stylesheets">
