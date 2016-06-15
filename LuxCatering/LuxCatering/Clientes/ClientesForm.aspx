@@ -144,7 +144,8 @@
     
     </div>
   </%--div>  
-    </asp:Content>
+    </div>
+</asp:Content>
 
 <asp:Content ID="Content1" runat="server" contentplaceholderid="Stylesheets">
     <link rel="stylesheet" href="~/Content/Site.css" type="text/css" />

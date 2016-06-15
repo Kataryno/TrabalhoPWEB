@@ -70,6 +70,7 @@
                         <li><a runat="server" id="fornecLink" visible="false" href="~/Fornecedores/FornecedoresFormPedidos">Orçamentos</a></li>
                         <li><a runat="server" id="clientLink" visible="false" href="~/Clientes/ClientesForm">Criar pedido</a></li>
                         <li><a runat="server" id="avaliaLink" visible="false" href="~/Clientes/Avaliacao">Avaliação</a></li>
+                        <li><a runat="server" id="repolink" visible="false" href="~/Clientes/Respostas">Respostas</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>

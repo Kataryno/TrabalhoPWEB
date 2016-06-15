@@ -23,6 +23,7 @@ namespace LuxCatering
                 avaliaLink.Visible = true;
                 clientLink.Visible = true;
                 comumLink.Visible = true;
+                repolink.Visible = true;
             }
             if (HttpContext.Current.User.IsInRole("Fornecedor"))
             {
@@ -96,6 +97,7 @@ namespace LuxCatering
                 avaliaLink.Visible = true;
                 clientLink.Visible = true;
                 comumLink.Visible = true;
+                repolink.Visible = true;
             }
             if (HttpContext.Current.User.IsInRole("Fornecedor"))
             {
