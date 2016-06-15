@@ -78,9 +78,6 @@ namespace LuxCatering
                 "Password = pweb;";
 
             conn.Open();
-           // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
-           // "alert('" + TxtDescricao.Text +TxtNome.Text + IDProd.Value+"');", true);
-        
 
             string sql = string.Format("UPDATE PRODUTO set NOME = '" + TxtNome.Text + "', DESCRICAO = '" + TxtDescricao.Text + "' WHERE ID_PRODUTO='" + IDProd.Value + "'");
             SqlCommand command = new SqlCommand(sql, conn);
@@ -89,7 +86,6 @@ namespace LuxCatering
             Prod.EditIndex = -1;
             BindDataToGridView();
             conn.Close();
-
         }
       
         protected void Prod_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -117,8 +113,6 @@ namespace LuxCatering
                 Prod.DataBind();
             }
             conn.Close();
-
-
         }
    
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,12 +128,9 @@ namespace LuxCatering
                 "User id=sa;" +
                 "Password = pweb;";
 
-            string Nome = ((TextBox)form1.FindControl("nomeprod")).Text;
-            string Descricao = ((TextBox)form1.FindControl("descricaoprod")).Text;
-
             conn.Open();
 
-            string addrow = "insert into  PRODUTO (Nome,Descricao) values('" + Nome + "','" + Descricao + "')";
+            string addrow = "insert into  PRODUTO (Nome,Descricao) values('" + nomeprod.Text + "','" + descricaoprod.Text + "')";
             SqlCommand com = new SqlCommand(addrow, conn);
             com.ExecuteNonQuery();
 
@@ -178,25 +169,7 @@ namespace LuxCatering
 
         protected void DetailsView1_ItemCreated(object sender, EventArgs e)
         {
-            /*  string nome = DetailsView1.Rows[1].Cells[1].Text;
-              string descricao = DetailsView1.Rows[2].Cells[1].Text;
 
-              SqlConnection conn = new SqlConnection();
-              conn.ConnectionString =
-                  "Data Source=espinheira.no-ip.org;" +
-                  "Initial Catalog=LuxCatering-DB;" +
-                  "User id=sa;" +
-                  "Password = pweb;";
-
-              conn.Open();
-              string insert = "insert into PRODUTO(NOME) values ('" + nome +"')";
-              SqlCommand com = new SqlCommand(insert, conn);
-
-
-              conn.Close();
-
-
-          }*/
         }
 
        
