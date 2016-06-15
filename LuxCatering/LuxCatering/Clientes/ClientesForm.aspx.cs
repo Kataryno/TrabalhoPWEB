@@ -9,6 +9,7 @@ using System.Web.Security;
 using System.Security.Principal;
 using System.Data;
 using System.Web.Configuration;
+using Microsoft.AspNet.Identity;
 
 namespace LuxCatering
 {
@@ -225,17 +226,24 @@ namespace LuxCatering
             string id_local = "SELECT ID_LOCAL FROM LOCAL WHERE NOME = '"+local+"'";
             // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
             //"alert('" + last +Nome + Descricao+"');", true);
-            SqlCommand com2 = new SqlCommand(id_local, conn);
+            SqlCommand com2c = new SqlCommand(id_local, conn);
 
-            var idlocal = (Int32)com2.ExecuteScalar();
+            var idlocal = (Int32)com2c.ExecuteScalar();
             conn.Close();
 
            // conn.Open();
            // string id_cliente = "SELECT ID_CLIENTE FROM CLIENTE WHERE EMAIL = '" + email + "'";
            // SqlCommand com3 = new SqlCommand(id_cliente, conn);
+           string email = ((Label)form1.FindControl("email")).Text;
 
-            var idcliente = 1;
-            //conn.Close();
+            conn.Open();
+            string id_cliente = "SELECT ID_CLIENTE FROM CLIENTE WHERE EMAIL = '" + Context.User.Identity.GetUserName() + "'";
+           
+            SqlCommand com2cl = new SqlCommand(id_cliente, conn);
+
+            var idcliente = (Int32)com2cl.ExecuteScalar();
+            conn.Close();
+           
 
             conn.Open();
             string addrow = "insert into  PEDIDO (ID_PEDIDO,ID_CLIENTE,ID_LOCAL,NOME,DATA_CRIACAO,NUM_PESSOAS,DATA_EVENTO) values('" + idpedido + "','" + idcliente + "','" + idlocal + "','" + Nome + "','" + datacriacao + "','" + pessoas + "','" + data + "')";
@@ -253,7 +261,7 @@ namespace LuxCatering
             SqlCommand com3 = new SqlCommand(id_linha, conn);
            
 
-            var id_linha1 = (Int32)com2.ExecuteScalar();
+            var id_linha1 = (Int32)com2c.ExecuteScalar();
             linhapedido.Text = id_linha1.ToString();
             conn.Close();
 

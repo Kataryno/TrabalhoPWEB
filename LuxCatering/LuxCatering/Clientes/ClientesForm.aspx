@@ -20,7 +20,7 @@
    <div id="backgroudform">
        <div id="form1" runat="server">
     
-      
+      <asp:Label runat="server" id="email"><%: Context.User.Identity.GetUserName()  %></asp:Label>
     
         <table class="nav-justified">
             <tr>
