@@ -134,22 +134,15 @@ namespace LuxCatering
                 "User id=sa;" +
                 "Password = pweb;";
 
-            conn.Open();
-            string lastrow = "SELECT TOP 1 ID_PRODUTO FROM PRODUTO ORDER BY ID_PRODUTO DESC";
-            SqlCommand com1 = new SqlCommand(lastrow, conn);
-
-            var last = (Int32)com1.ExecuteScalar()+1;
-
             string Nome = ((TextBox)form1.FindControl("nomeprod")).Text;
             string Descricao = ((TextBox)form1.FindControl("descricaoprod")).Text;
-           // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
-            //"alert('" + last +Nome + Descricao+"');", true);
-            conn.Close();
+
             conn.Open();
 
-            string addrow = "insert into  PRODUTO (ID_PRODUTO,Nome,Descricao) values('" + last + "','" + Nome + "','" + Descricao + "')";
+            string addrow = "insert into  PRODUTO (Nome,Descricao) values('" + Nome + "','" + Descricao + "')";
             SqlCommand com = new SqlCommand(addrow, conn);
-           com.ExecuteNonQuery();
+            com.ExecuteNonQuery();
+
             BindDataToGridView();
             conn.Close();
         }
