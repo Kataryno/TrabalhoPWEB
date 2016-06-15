@@ -18,28 +18,6 @@ namespace LuxCatering
         private bool _refreshState;
         private bool _isRefresh;
 
-       /* protected override void LoadViewState(object savedState)
-        {
-            object[] AllStates = (object[])savedState;
-            base.LoadViewState(AllStates[0]);
-            _refreshState = bool.Parse(AllStates[1].ToString());
-            _isRefresh = _refreshState == bool.Parse(Session["__ISREFRESH"].ToString());
-        }
-
-        protected override object SaveViewState()
-        {
-            Session["__ISREFRESH"] = _refreshState;
-            object[] AllStates = new object[2];
-            AllStates[0] = base.SaveViewState();
-            AllStates[1] = !(_refreshState);
-            return AllStates;
-        }
-
-        protected void btn_Click(object sender, EventArgs e)
-        {
-            if (!_isRefresh)
-                Response.Write(DateTime.Now.Millisecond.ToString());
-        }*/
         protected void Page_Load(object sender, EventArgs e)
           {
 
@@ -82,25 +60,7 @@ namespace LuxCatering
 
         protected void DetailsView1_ItemCreated(object sender, EventArgs e)
         {
-            /*  string nome = DetailsView1.Rows[1].Cells[1].Text;
-              string descricao = DetailsView1.Rows[2].Cells[1].Text;
 
-              SqlConnection conn = new SqlConnection();
-              conn.ConnectionString =
-                  "Data Source=espinheira.no-ip.org;" +
-                  "Initial Catalog=LuxCatering-DB;" +
-                  "User id=sa;" +
-                  "Password = pweb;";
-
-              conn.Open();
-              string insert = "insert into PRODUTO(NOME) values ('" + nome +"')";
-              SqlCommand com = new SqlCommand(insert, conn);
-
-
-              conn.Close();
-
-
-          }*/
         }
 
         protected void SqlDataSource3_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
@@ -219,22 +179,14 @@ namespace LuxCatering
             var pessoas = ((TextBox)form1.FindControl("pessoasevento")).Text;
             var datacriacao = DateTime.Now.ToString("yyyy/MM/dd");
             string local = ((TextBox)form1.FindControl("localevento")).Text;
-            //string email = HttpContext.Current.User.Identity.Name;
             conn.Close();
 
             conn.Open();
             string id_local = "SELECT ID_LOCAL FROM LOCAL WHERE NOME = '"+local+"'";
-            // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
-            //"alert('" + last +Nome + Descricao+"');", true);
             SqlCommand com2c = new SqlCommand(id_local, conn);
 
             var idlocal = (Int32)com2c.ExecuteScalar();
             conn.Close();
-
-           // conn.Open();
-           // string id_cliente = "SELECT ID_CLIENTE FROM CLIENTE WHERE EMAIL = '" + email + "'";
-           // SqlCommand com3 = new SqlCommand(id_cliente, conn);
-           string email = ((Label)form1.FindControl("email")).Text;
 
             conn.Open();
             string id_cliente = "SELECT ID_CLIENTE FROM CLIENTE WHERE EMAIL = '" + Context.User.Identity.GetUserName() + "'";
@@ -256,8 +208,7 @@ namespace LuxCatering
             BindDataToGridView3();
             conn.Open();
             string id_linha = "SELECT TOP 1 ID_LINHA_PEDIDO FROM LINHA_PEDIDO ORDER BY ID_LINHA_PEDIDO DESC"; ;
-            // ScriptManager.RegisterStartupScript(Page, Page.GetType(), "showError",
-            //"alert('" + last +Nome + Descricao+"');", true);
+
             SqlCommand com3 = new SqlCommand(id_linha, conn);
            
 

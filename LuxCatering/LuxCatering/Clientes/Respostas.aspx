@@ -3,7 +3,7 @@
 
 <asp:Content ID="ContentRepo" ContentPlaceHolderID="MainContent" runat="server">
     <div runat="server">
-    <asp:Label runat="server" id="email"><%: Context.User.Identity.GetUserName()  %></asp:Label>
+    <%--<asp:Label runat="server" id="email"><%: Context.User.Identity.GetUserName()  %></asp:Label>--%>
         <asp:button runat="server" text="Ver as respostas aos meus pedidos" OnClick="Unnamed1_Click" />
 
           <asp:GridView  ID="orcamento"  AllowSorting="True" CssClass="table table-striped color-table" runat="server" AutoGenerateColumns="false" >
