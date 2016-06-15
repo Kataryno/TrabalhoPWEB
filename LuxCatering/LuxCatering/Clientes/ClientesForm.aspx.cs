@@ -124,6 +124,7 @@ namespace LuxCatering
             // In this example, the third column (index 2) contains
             // the first name.
             MessageLabel.Text = "Quer adicionar " + row.Cells[3].Text + " ao pedido ?";
+            idproduto.Text = row.Cells[0].Text;
         }
 
        protected void GridView2_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
@@ -143,7 +144,7 @@ namespace LuxCatering
             {
                 e.Cancel = true;
                 MessageLabel.Text = "You cannot select " + row.Cells[2].Text + ".";
-                idproduto.Text = row.Cells[0].Text;
+               
             }
         }
         public void BindDataToGridView3()
@@ -299,30 +300,6 @@ namespace LuxCatering
 
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
-        {
 
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString =
-                "Data Source=espinheira.no-ip.org;" +
-                "Initial Catalog=LuxCatering-DB;" +
-                "User id=sa;" +
-                "Password = pweb;";
-
-           
-            conn.Open();
-
-           // string idcliente = ((Label)form1.FindControl("ID_pedido")).Text;
-
-
-          
-
-
-       /*     string addrow = "select LINHA_PEDIDO (ID_PEDIDO,ID_LINHA_PEDIDO,ID_PRODUTO,QTD_PRODUTO) values('" + idpedido + "','" + idlpedido + "','" + idproduto + "','" + qdproduto + "')";
-            SqlCommand com = new SqlCommand(addrow, conn);
-            com.ExecuteNonQuery();
-            conn.Close();
-            BindDataToGridView4();*/
-        }
     }
 }

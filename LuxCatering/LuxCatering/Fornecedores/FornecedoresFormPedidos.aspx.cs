@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Web.Security;
 using System.Data;
 using System.Web.Configuration;
-
+using Microsoft.AspNet.Identity;
 
 namespace LuxCatering
 {
@@ -86,7 +86,11 @@ namespace LuxCatering
         {
 
         }
-
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GridView2.SelectedRow;
+            pedidoLabel.Text = row.Cells[1].Text;
+        }
         protected void DetailsView1_ItemCreated(object sender, EventArgs e)
         {
           
@@ -94,7 +98,47 @@ namespace LuxCatering
 
           }
 
-  
+        protected void Unnamed2_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString =
+                "Data Source=espinheira.no-ip.org;" +
+                "Initial Catalog=LuxCatering-DB;" +
+                "User id=sa;" +
+                "Password = pweb;";
+
+            conn.Open();
+            var emailf = Context.User.Identity.GetUserName();
+            string idfornecedor = "SELECT ID_FORNECEDOR FROM FORNECEDOR where EMAIL = '"+emailf+"'";
+            SqlCommand com1 = new SqlCommand(idfornecedor, conn);
+
+            var idfor = (Int32)com1.ExecuteScalar();
+            conn.Close();
+            conn.Open();
+           
+            string nomefornecedor = "SELECT NOME FROM FORNECEDOR where EMAIL = '" + emailf + "'";
+            SqlCommand com2 = new SqlCommand(nomefornecedor, conn);
+
+            string nomefor = (String)com2.ExecuteScalar();
+            conn.Close();
+
+           
+            var preco = ((TextBox)precoorca.FindControl("preco")).Text;
+            var datacriacao = DateTime.Now.ToString("yyyy/m/d");
+            var idpedido = pedidoLabel.Text;
+        
+       
+            conn.Open();
+            string addrow = "insert into  ORCAMENTO (ID_PEDIDO,ID_FORNECEDOR,NOME,DATA_CRIACAO,PRECO_TOTAL) values('"+idpedido+"','" + idfor + "','" + nomefor + "','" + datacriacao + "','" + preco + "')";
+            SqlCommand com = new SqlCommand(addrow, conn);
+            com.ExecuteNonQuery();
+
+
+            conn.Close();
+         
+        }
+
+      
     }
 
 

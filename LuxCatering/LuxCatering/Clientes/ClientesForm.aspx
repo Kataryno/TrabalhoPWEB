@@ -112,8 +112,6 @@
  <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Adicionar" />
     </form>
 
-                          <asp:Button ID="Button3" runat="server" Text="Button" OnClick="Button3_Click" />
-
                           <asp:GridView  ID="LPedido"  AllowSorting="True" CssClass="table table-striped color-table" runat="server" AutoGenerateColumns="false" >
                              <Columns>
                                  <asp:TemplateField>
