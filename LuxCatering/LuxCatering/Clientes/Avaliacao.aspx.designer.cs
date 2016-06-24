@@ -7,72 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LuxCatering {
+namespace LuxCatering.Clientes {
     
     
-    public partial class User {
+    public partial class Avaliacao {
         
         /// <summary>
-        /// form1 control.
+        /// ddlFornecedores control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl form1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlFornecedores;
         
         /// <summary>
-        /// TBUserName control.
+        /// dsFornecedoresAvaliacao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBUserName;
+        protected global::System.Web.UI.WebControls.SqlDataSource dsFornecedoresAvaliacao;
         
         /// <summary>
-        /// RequiredFieldValidator1 control.
+        /// ddlComunicacao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlComunicacao;
         
         /// <summary>
-        /// TBPassword control.
+        /// ddlSimpatia control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBPassword;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSimpatia;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// ddlPreco control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.WebControls.DropDownList ddlPreco;
         
         /// <summary>
-        /// Button1 control.
+        /// ddlServico control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlServico;
         
         /// <summary>
-        /// Login1 control.
+        /// ddlGlobal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGlobal;
     }
 }

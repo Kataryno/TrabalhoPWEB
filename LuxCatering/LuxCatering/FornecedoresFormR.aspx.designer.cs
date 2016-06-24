@@ -10,24 +10,15 @@
 namespace LuxCatering {
     
     
-    public partial class Login {
+    public partial class FornecedoresForm {
         
         /// <summary>
-        /// registo control.
+        /// form2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl registo;
-        
-        /// <summary>
-        /// ctl06 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard ctl06;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form2;
     }
 }

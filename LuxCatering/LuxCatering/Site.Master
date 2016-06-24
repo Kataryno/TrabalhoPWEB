@@ -56,8 +56,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Lux Catering<asp:LoginView ID="LoginView1" runat="server">
-                    </asp:LoginView>
+                    <a class="navbar-brand" runat="server" href="~/">Lux Catering<%--<asp:LoginView ID="LoginView1" runat="server">
+                    </asp:LoginView>--%>
                     </a>
                 &nbsp;</div>
                 <div class="navbar-collapse collapse">
@@ -65,17 +65,21 @@
                         <%--<li><a runat="server" href="~/">Início</a></li>--%>
                         <li><a runat="server" href="~/About">Acerca</a></li>
                         <li><a runat="server" href="~/Contact">Contactos</a></li>
+                        <li><a runat="server" id="adminLink" visible="false" href="~/Admin/ManageRoles">Administração</a></li>
+                        <li><a runat="server" id="comumLink" visible="false" href="~/Comum/CriaProduto">Criar Produtos</a></li>
+                        <li><a runat="server" id="fornecLink" visible="false" href="~/Fornecedores/FornecedoresFormPedidos">Orçamentos</a></li>
+                        <li><a runat="server" id="clientLink" visible="false" href="~/Clientes/ClientesForm">Criar pedido</a></li>
+                        <li><a runat="server" id="avaliaLink" visible="false" href="~/Clientes/Avaliacao">Avaliação</a></li>
+                        <li><a runat="server" id="repolink" visible="false" href="~/Clientes/Respostas">Respostas</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="Registo.aspx">Registar</a></li>
-                                <li><a runat="server" href="Login.aspx">Log in</a></li>
+                                <li><a runat="server" href="~/Account/Register.aspx">Registar</a></li>
+                                <li><a runat="server" href="~/Account/Login.aspx">Log in</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
-                            <b>Bem vindo</b><asp:LoginName runat="server"></asp:LoginName>
-                            <asp:LoginStatus runat="server"></asp:LoginStatus>
                             <ul class="nav navbar-nav navbar-right">
                                 <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>
@@ -87,7 +91,7 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content" style="height:60%">
+        <div class="container body-content" >
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
@@ -97,9 +101,12 @@
 
             
         </div>
-        <div id="footer">
+      
+    </form>
+      
+</b>
+
+    <div id="footer" >
                 <p>Lux Catering &copy; <%: DateTime.Now.Year %> </p>
             </div>
-    </form>
-</b>
 </html>

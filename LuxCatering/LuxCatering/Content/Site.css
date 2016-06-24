@@ -5,10 +5,13 @@ body {
     background-image:url("wallpaper3.jpg")
 }
 h1{
-    font-family:Papyrus;
+    font-family:'Century Gothic';
 }
 h2{
     font-family:'Bodoni MT';
+}
+h4{
+    font-family:Calibri;
 }
 
 p{
@@ -18,9 +21,11 @@ p{
 table.auto-style1{
     text-align:center;
     margin-left:auto; 
+    margin-top:100px; 
     margin-right:auto;
     padding-right: 15px;
     padding-left: 25px;
+    padding-top: 25px;
     background-color: lightgrey;
     border-radius: 25px;
     /*border: 2px solid #000000;*/
@@ -33,6 +38,9 @@ table.auto-style1{
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    height:80%;
+    margin-top:100px;
+
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -61,6 +69,7 @@ input[type="select"] {
     }
     .body-content {
         padding: 0;
+        height:80%;
     }
     
 }
@@ -78,4 +87,61 @@ input[type="select"] {
     margin-left: auto;
     margin-right: auto;
     font-weight: bold;
+    /*position:absolute;
+    bottom:0;*/
+}
+
+#frames{
+  font-family:'Bodoni MT';
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin:5px;
+  background-color: lightgrey;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  padding: 20px; 
+  width: 200px;
+  height: 225px;
+}
+
+#framelogin{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin:5px;
+  background-color: lightgrey;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  padding: 20px; 
+  width: 600px;
+  height: 475px;
+}
+
+#frameregisto{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin:5px;
+  background-color: lightgrey;
+  border-radius: 20px;
+  border: 2px solid #000000;
+  padding: 20px; 
+  width: 600px;
+  height: 650px;
+}
+
+#backgroudform{
+    position: relative;
+    padding-right: 15px;
+  padding-left: 15px;
+    height:95%; 
+    width:90%; 
+    background-color:antiquewhite;
+    border-radius: 20px;
+    border: 2px solid #000000;
+   margin:auto;
 }

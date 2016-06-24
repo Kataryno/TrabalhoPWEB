@@ -1,4 +1,4 @@
-﻿<%@Page Title="Fornecedor"  Language="C#" AutoEventWireup="true" CodeBehind="FornecedoresForm.aspx.cs" Inherits="LuxCatering.FornecedoresForm" %>
+﻿<%@Page Title="Fornecedor"  Language="C#" AutoEventWireup="true" CodeBehind="FornecedoresFormR.aspx.cs" Inherits="LuxCatering.FornecedoresForm" %>
 
 <!DOCTYPE html>
 
@@ -8,7 +8,7 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form2" runat="server">
     <div>
     <div class="jumbotron">
         <h1>LuxCatering</h1>
